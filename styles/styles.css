@@ -1,0 +1,9 @@
+/* 
+ * @prettier
+ * 웹사이트에 전반적으로 사용되는 스타일을 정의하는 css파일입니다.
+ */
+
+html {
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
+}
