@@ -14,5 +14,5 @@
 새로운 페이지를 만들 경우 template.html을 적절히 수정하여 사용합니다
 
 ## Third-party Dependencies
-[Font Awesome](https://fontawesome.com/)
-[minireset](https://github.com/jgthms/minireset.css)
+* [Font Awesome](https://fontawesome.com/)
+* [minireset](https://github.com/jgthms/minireset.css)
