@@ -6,9 +6,9 @@
 export default class User {
   constructor(id, email, name, userType) {
     this.id = id;
-    this.email = email;
     this.name = name;
     this.userType = type;
+    this.email = email;
   }
 
   get getId() {
