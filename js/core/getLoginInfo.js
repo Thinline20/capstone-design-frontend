@@ -2,7 +2,7 @@
  * @prettier
  */
 
-import { Maybe } from "./maybe.js";
+import { Maybe } from "../utils/maybe.js";
 import { getCookieData } from "../utils/cookie.js";
 
 export const getLoginInfo = () => {
