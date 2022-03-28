@@ -12,22 +12,6 @@ export class Maybe {
       return value;
     }
   }
-
-  isJust(maybe) {
-    if (maybe instanceof Just) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  isNothing(maybe) {
-    if (maybe instanceof Nothing) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
 
 export class Just extends Maybe {
