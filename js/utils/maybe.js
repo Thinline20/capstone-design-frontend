@@ -30,3 +30,19 @@ export class Nothing extends Maybe {
     super();
   }
 }
+
+export function isJust(maybe) {
+  if (maybe instanceof Just) {
+    return true;
+  }
+
+  return false;
+}
+
+export function isNothing(maybe) {
+  if (maybe instanceof Nothing) {
+    return true;
+  }
+
+  return false;
+}
