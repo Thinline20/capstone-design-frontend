@@ -5,7 +5,7 @@
 import { HttpStatusCode, errorHandler } from "./core/errorHandler.js";
 import { router } from "./core/router.js";
 import { getLoginInfo } from "./core/getLoginInfo.js";
-import { setCookie, deleteCookie } from "./core/cookie.js";
+import { setCookie, deleteCookie } from "./utils/cookie.js";
 
 const loginForm = document.querySelector(".login-form");
 
