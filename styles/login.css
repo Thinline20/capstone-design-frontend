@@ -1,0 +1,66 @@
+/* 
+ * @prettier
+ */
+
+main {
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.login-box-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+.login-box {
+  width: 30rem;
+  height: 20rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #aaa;
+}
+
+.login-description {
+  margin-bottom: 1rem;
+}
+
+.login-description h2 {
+  font-size: 1.75rem;
+  letter-spacing: 0.05rem;
+}
+
+.login-description p {
+  font-size: 0.8rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-text {
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-submit {
+  display: inline-block;
+  /* padding: 2rem auto; */
+}
+
+.login-find-account {
+  
+  text-decoration: none;
+  color: black;
+}
+
+.login-find-account:hover {
+  text-decoration: underline;
+}

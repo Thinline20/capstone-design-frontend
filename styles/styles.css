@@ -78,13 +78,13 @@ html {
   gap: 1rem;
 }
 
-.login-link {
+.login-link, .logout-link {
   padding: 0.3rem 0.3rem;
   border-radius: 0.4rem;
   transition: background-color 0.08s cubic-bezier(0.12, 0, 0.39, 0);
 }
 
-.login-link:hover {
+.login-link:hover, .logout-link:hover {
   background-color: #eee;
 }
 
