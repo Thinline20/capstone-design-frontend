@@ -13,34 +13,34 @@ html {
 }
 
 .root {
-  width: 100vw;
-  height: 100vh;
   background-color: var(--color-background);
+  height: 100vh;
+  width: 100vw;
 }
 
 .container {
-  padding-left: 1rem;
-  padding-right: 1rem;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   width: 100%;
 }
 
 /* 헤더 스타일 정의 */
 .header {
-  width: 100%;
-  height: 5rem;
-  position: relative;
+  align-items: flex-center;
   border-bottom: 1px solid #ccc;
   display: flex;
-  align-items: flex-center;
   font-size: 1.125rem;
+  height: 5rem;
+  position: relative;
+  width: 100%;
 }
 
 .top-navbar {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-flow: row wrap;
   gap: 1rem;
   justify-content: space-between;
@@ -51,14 +51,14 @@ html {
 }
 
 .top-navbar-main {
-  order: 1;
   display: flex;
   gap: 1.2rem;
+  order: 1;
 }
 
 .header a {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }
 
 .top-navbar-link {
@@ -70,16 +70,16 @@ html {
 }
 
 .top-navbar-side {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
   order: 2;
   width: 224px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
 }
 
 .top-navbar-side a {
-  padding: 0.3rem 0.3rem;
   border-radius: 0.4rem;
+  padding: 0.3rem 0.3rem;
   transition: background-color 0.08s cubic-bezier(0.12, 0, 0.39, 0);
 }
 
@@ -88,10 +88,10 @@ html {
 }
 
 .open-navbar {
-  padding-top: 0.3rem;
-  border-radius: 0.4rem;
   background-color: var(--color-background);
   border: none;
+  border-radius: 0.4rem;
+  padding-top: 0.3rem;
   transition: background-color 0.08s cubic-bezier(0.12, 0, 0.39, 0);
 }
 
