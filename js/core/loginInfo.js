@@ -22,10 +22,6 @@ export const getLoginInfo = () => {
 };
 
 export const deleteLoginInfo = () => {
-  const id = Maybe.withDefault("", CookieData("id"));
-
-  if (id) {
-    deleteCookie("id");
-    deleteCookie("privilegeLevel");
-  }
+  deleteCookie("id");
+  deleteCookie("privilegeLevel");
 }
