@@ -16,7 +16,9 @@ main {
 }
 
 .login-box {
+  background-color: white;
   border: 2px solid #aaa;
+  border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
   height: 25rem;
@@ -24,8 +26,6 @@ main {
   padding-left: 4.1rem;
   padding-right: 4.1rem;
   width: 30rem;
-  border-radius: 0.4rem;
-  background-color: white;
 }
 
 .login-description {
@@ -56,12 +56,22 @@ main {
 
 .input-text {
   appearance: none;
-  border: 1px solid black;
+  border: 1px solid #bbb;
   border-radius: 0.4rem;
+  box-shadow: 0 0 0 3px none;
   display: inline-block;
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
   padding: 0.5rem 0.8rem;
+  transition-duration: 0.1s;
+  transition-property: box-shadow, border;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-text:focus {
+  border: 1px solid white;
+  box-shadow: 0 0 0 3px #fb7185;
+  outline: none;
 }
 
 .login-submit {
