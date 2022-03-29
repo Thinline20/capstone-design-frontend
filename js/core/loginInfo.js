@@ -3,7 +3,12 @@
  */
 
 import { Maybe, Just, Nothing } from "../utils/maybe.js";
-import { getCookieData, deleteCookie } from "../utils/cookie.js";
+import { setCookie, getCookieData, deleteCookie } from "../utils/cookie.js";
+
+export const addLoginInfo = (id, privilegeLevel) => {
+  setCookie("id", id);
+  setCookie("privilegeLevel", privilegeLevel);
+}
 
 export const getLoginInfo = () => {
   const id = Maybe.withDefault("", getCookieData("id"));
