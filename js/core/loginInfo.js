@@ -7,18 +7,20 @@ import { getCookieData, deleteCookie } from "../utils/cookie.js";
 
 export const getLoginInfo = () => {
   const id = Maybe.withDefault("", getCookieData("id"));
+  const privilegeLevel = Maybe.withDefault(0, getCookieData("privilegeLevel"));
 
   if (id) {
-    return new Just({
-      id: id,
-      privilegeLevel: Maybe.withDefault(0, getCookieData("privilege")),
-    });
+    return new Just({id: id, privilegeLevel: privilegeLevel});
   } else {
     return new Nothing();
   }
 };
 
-export const removeLoginCookie = () => {
-  deleteCookie("id");
-  deleteCookie("privilege");
-};
+export const deleteLoginInfo = () => {
+  const id = Maybe.withDefault("", CookieData("id"));
+
+  if (id) {
+    deleteCookie("id");
+    deleteCookie("privilegeLevel");
+  }
+}

@@ -55,12 +55,12 @@ main {
   /* padding: 2rem auto; */
 }
 
-.login-find-account {
+.find-account {
   
   text-decoration: none;
   color: black;
 }
 
-.login-find-account:hover {
+.find-account:hover {
   text-decoration: underline;
 }
