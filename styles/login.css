@@ -50,7 +50,7 @@ main {
 
 .login-label {
   color: #3c4257;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-bottom: 0rem;
 }
 
@@ -59,6 +59,7 @@ main {
   border: 1px solid #bbb;
   border-radius: 0.4rem;
   box-shadow: 0 0 0 3px none;
+  color: #303441;
   display: inline-block;
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
@@ -66,11 +67,12 @@ main {
   transition-duration: 0.1s;
   transition-property: box-shadow, border;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.03rem;
 }
 
 .input-text:focus {
   border: 1px solid white;
-  box-shadow: 0 0 0 3px #fb7185;
+  box-shadow: 0 0 0 3px #2563eb;
   outline: none;
 }
 
