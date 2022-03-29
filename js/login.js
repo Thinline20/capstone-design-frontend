@@ -2,12 +2,17 @@
  * @prettier
  */
 
+import { Maybe } from "./utils/maybe.js";
 import { HttpStatusCode, errorHandler } from "./core/errorHandler.js";
 import { router } from "./core/router.js";
-import { getLoginInfo } from "./core/loginInfo.js";
+import { addLoginInfo, getLoginInfo } from "./core/loginInfo.js";
 import { setCookie, deleteCookie } from "./utils/cookie.js";
 
-const loginInfo = getLoginInfo();
+const loginInfo = Maybe.withDefault(null, getLoginInfo());
+
+if (loginInfo) {
+  window.location.href = "/"
+}
 
 const loginForm = document.querySelector(".login-form");
 
@@ -16,16 +21,20 @@ loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target).entries());
 
-    if (!formData.id || !formData.pw) {
+    if (!formData.id) {
+      console.log("No id");
+      return;
+    }
+    if (!formData.password) {
+      console.log("No password");
       return;
     }
 
     const loginRes = await login(formData.id, formData.password);
+    console.log(loginRes);
 
     if (loginRes) {
-      console.log(ee);
-      setCookie("id", formData.id);
-      setCookie("privilege", 2);
+      addLoginInfo(formData.id, 2);
       window.history.back();
     }
   } catch (err) {
