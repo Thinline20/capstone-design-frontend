@@ -6,7 +6,7 @@ import { Maybe, Just, Nothing } from "../utils/maybe.js";
 import { getCookieData, deleteCookie } from "../utils/cookie.js";
 
 export const getLoginInfo = () => {
-  const id = Maybe.withDefault("", CookieData("id"));
+  const id = Maybe.withDefault("", getCookieData("id"));
   const privilegeLevel = Maybe.withDefault(0, getCookieData("privilegeLevel"));
 
   if (id) {
