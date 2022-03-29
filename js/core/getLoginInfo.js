@@ -2,9 +2,25 @@
  * @prettier
  */
 
-import { Maybe } from "../utils/maybe.js";
-import { getCookieData } from "../utils/cookie.js";
+import { Maybe, Just, Nothing } from "../utils/maybe.js";
+import { getCookieData, deleteCookie } from "../utils/cookie.js";
 
 export const getLoginInfo = () => {
-  return Maybe.withDefault("", getCookieData("id"));
+  const id = Maybe.withDefault("", CookieData("id"));
+  const privilegeLevel = Maybe.withDefault(0, getCookieData("privilegeLevel"));
+
+  if (id) {
+    return new Just({id: id, privilegeLevel: privilegeLevel});
+  } else {
+    return new Nothing();
+  }
 };
+
+export const deleteLoginInfo = () => {
+  const id = Maybe.withDefault("", CookieData("id"));
+
+  if (id) {
+    deleteCookie("id");
+    deleteCookie("privilegeLevel");
+  }
+}
