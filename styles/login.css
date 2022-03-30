@@ -51,8 +51,8 @@ main {
 .login-label {
   color: #3c4257;
   font-size: 0.85rem;
-  margin-bottom: 0rem;
   font-weight: 500;
+  margin-bottom: 0rem;
 }
 
 .input-text {
@@ -63,12 +63,12 @@ main {
   color: #303441;
   display: inline-block;
   font-size: 1.125rem;
+  letter-spacing: 0.03rem;
   margin-bottom: 0.5rem;
   padding: 0.5rem 0.8rem;
   transition-duration: 0.1s;
   transition-property: box-shadow, border;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.03rem;
 }
 
 .input-text:focus {
