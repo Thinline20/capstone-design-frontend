@@ -32,6 +32,7 @@ html {
   align-items: flex-center;
   border-bottom: 1px solid #ccc;
   display: flex;
+  flex-wrap: none;
   font-size: 1.125rem;
   height: 5rem;
   position: relative;

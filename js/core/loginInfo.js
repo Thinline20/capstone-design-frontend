@@ -15,7 +15,8 @@ export const getLoginInfo = () => {
   const privilegeLevel = Maybe.withDefault(0, getCookieData("privilegeLevel"));
 
   if (id) {
-    return new Just({id: id, privilegeLevel: privilegeLevel});
+    // return new Just({id: id, privilegeLevel: privilegeLevel});
+    return new Just({id, privilegeLevel});
   } else {
     return new Nothing();
   }

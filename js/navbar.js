@@ -9,22 +9,34 @@ const loginInfo = Maybe.withDefault(null, getLoginInfo());
 
 let topNavbarSide = document.querySelector(".top-navbar-side");
 
-// 로그인/로그아웃 버튼
-let newLink = document.createElement("a");
+// 로그인/로그아웃, 회원가입 버튼
+let logInOutLink = document.createElement("a");
 
 if (loginInfo) {
-  newLink.classList.add("logout-link");
-  newLink.innerText = "로그아웃";
-  newLink.href = "#"
+  logInOutLink.classList.add("logout-link", "log");
+  logInOutLink.innerText = "로그아웃";
+  logInOutLink.href = "#";
 
-  newLink.addEventListener("click", () => {
+  logInOutLink.addEventListener("click", () => {
     deleteLoginInfo();
     window.location.reload();
-  })
+  });
 } else {
-  newLink.classList.add("login-link");
-  newLink.href = "/pages/login.html";
-  newLink.innerText = "로그인";
+  logInOutLink.classList.add("login-link", "log");
+  logInOutLink.href = "/pages/login.html";
+  logInOutLink.innerText = "로그인";
 }
 
-topNavbarSide.insertBefore(newLink, document.querySelector(".open-navbar"));
+topNavbarSide.insertBefore(
+  logInOutLink,
+  document.querySelector(".open-navbar")
+);
+
+if (loginInfo && loginInfo.privilegeLevel === "2") {
+  let signupLink = document.createElement("a");
+  signupLink.classList.add("signup-link");
+  signupLink.href = "/pages/signup.html";
+  signupLink.innerText = "회원가입";
+
+  topNavbarSide.insertBefore(signupLink, document.querySelector(".log"));
+}
