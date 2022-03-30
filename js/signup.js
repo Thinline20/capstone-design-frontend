@@ -3,7 +3,7 @@
  */
 
 import { getLoginInfo } from "./core/loginInfo.js";
-import { Maybe } from "./utils/maybe.js";
+import { Maybe, Just, Nothing } from "./utils/maybe.js";
 
 const isUserAuthorized = async (loginInfo) => {
   try {
@@ -11,8 +11,14 @@ const isUserAuthorized = async (loginInfo) => {
     return true;
   } catch (err) {
     console.log(err);
+    return false;
   }
 }
 
 const loginInfo = Maybe.withDefault(null, getLoginInfo());
 
+if (loginInfo) {
+  
+} else {
+  window.location.back();
+}
