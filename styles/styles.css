@@ -183,9 +183,9 @@ form .input-date:hover {
 }
 
 form .input-date:focus {
-  outline: none;
   border: 1px solid white;
   box-shadow: 0 0 0 3px #2563eb;
+  outline: none;
 }
 
 form .submit {

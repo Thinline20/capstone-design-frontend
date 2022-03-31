@@ -23,7 +23,6 @@ loginForm.addEventListener("submit", async (e) => {
 
     if (loginRes) {
       addLoginInfo(formData.id, 2);
-      window.history.back();
     }
   } catch (err) {
     console.log(err);
