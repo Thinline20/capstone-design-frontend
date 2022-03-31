@@ -3,7 +3,7 @@
  *
  */
 
-export const HttpStatusCode = {
+export const HttpStatusCodeMessage = {
   100: "Continue",
   101: "SWITCHING_PROTOCOL",
   102: "PROCESSING",
@@ -45,9 +45,4 @@ export const HttpStatusCode = {
   415: "Unsupported Media Type",
   416: "Range Not Satisfied",
   417: "Expectation Failed",
-};
-
-export const errorHandler = (httpStatusCode, err) => {
-  console.log(err);
-  window.history.pushState(null, null, "../pages/error.html");
 };

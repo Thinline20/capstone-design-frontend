@@ -2,19 +2,6 @@
  * @prettier
  */
 
-import { getLoginInfo } from "./core/loginInfo.js";
-import { Maybe, Just, Nothing } from "./utils/maybe.js";
-
-const isUserAuthorized = async (loginInfo) => {
-  try {
-    // const res = await fetch("");
-    return true;
-  } catch (err) {
-    console.log(err);
-    return false;
-  }
-};
-
 let studentDateData = document.querySelectorAll(".student-form-data");
 let signupRole = document.getElementById("signup-role");
 signupRole.selectedIndex = -1;
