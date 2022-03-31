@@ -17,8 +17,9 @@ main {
 
 .login-box {
   background-color: white;
-  border: 2px solid #aaa;
   border-radius: 0.4rem;
+  box-shadow: 0 15px 35px 0 rgba(60, 66, 87, 0.08),
+    0 5px 15px 0 rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   height: 25rem;
@@ -46,58 +47,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.login-label {
-  color: #3c4257;
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 0rem;
-}
-
-.input-text {
-  appearance: none;
-  border: 1px solid #bbb;
-  border-radius: 0.4rem;
-  box-shadow: 0 0 0 3px none;
-  color: #303441;
-  display: inline-block;
-  font-size: 1.125rem;
-  letter-spacing: 0.03rem;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 0.8rem;
-  transition-duration: 0.1s;
-  transition-property: box-shadow, border;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.input-text:focus {
-  border: 1px solid white;
-  box-shadow: 0 0 0 3px #2563eb;
-  outline: none;
-}
-
-.login-submit {
-  appearance: none;
-  background-color: #0284c7;
-  border: none;
-  border-radius: 0.4rem;
-  color: white;
-  display: inline-block;
-  font-size: 1.1rem;
-  letter-spacing: 0.05rem;
-  margin-bottom: 0.2rem;
-  padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
-  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.login-submit:hover {
-  background-color: #0369a1;
-}
-
-.login-submit:active {
-  background-color: #0ea5e9;
 }
 
 .find-account {

@@ -8,7 +8,7 @@ import { addLoginInfo, getLoginInfo } from "./core/loginInfo.js";
 const loginInfo = Maybe.withDefault(null, getLoginInfo());
 
 if (loginInfo) {
-  window.location.href = "/"
+  window.location.href = "/";
 }
 
 const loginForm = document.querySelector(".login-form");
@@ -17,15 +17,6 @@ loginForm.addEventListener("submit", async (e) => {
   try {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target).entries());
-
-    if (!formData.id) {
-      console.log("No id");
-      return;
-    }
-    if (!formData.password) {
-      console.log("No password");
-      return;
-    }
 
     const loginRes = await login(formData.id, formData.password);
     console.log(loginRes);

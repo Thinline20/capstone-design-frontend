@@ -36,7 +36,7 @@ if (loginInfo && loginInfo.privilegeLevel === "2") {
   let signupLink = document.createElement("a");
   signupLink.classList.add("signup-link");
   signupLink.href = "/pages/signup.html";
-  signupLink.innerText = "회원가입";
+  signupLink.innerText = "회원생성";
 
   topNavbarSide.insertBefore(signupLink, document.querySelector(".log"));
 }

@@ -13,12 +13,12 @@ const isUserAuthorized = async (loginInfo) => {
     console.log(err);
     return false;
   }
-}
+};
 
-const loginInfo = Maybe.withDefault(null, getLoginInfo());
-
-if (loginInfo) {
-  
-} else {
-  window.location.back();
-}
+document.getElementById("signup-enter-date").addEventListener("change", (e) => {
+  let gradDate = new Date(e.target.value);
+  gradDate.setFullYear(gradDate.getFullYear() + 4);
+  document.getElementById(
+    "signup-grad-date"
+  ).value = `${gradDate.getFullYear()}-02`;
+});

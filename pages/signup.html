@@ -65,30 +65,141 @@
         </div>
       </header>
 
-      
       <main>
-        <!-- 회원가입 -->
-        <div class="container signup-box-wrapper">
+        <!-- 회원생성 -->
+        <div class="container signup-container">
           <div class="signup-box">
-            <div class="login-description">
-              <h2>회원가입</h2>
-            </div>
-            <form action="" method="post" class="sighup-form">
-              <label class="signup-label" for="login-id">학번(교번)</label>
-              <input
-                id="signup-id"
-                class="input-text"
-                name="id"
-                type="text"
-              />
-              <label class="login-label" for="login-pw">비밀번호</label>
-              <input
-                id="signup-pw"
-                class="input-text"
-                name="password"
-                type="password"
-              />
-              <button type="submit" class="login-submit">회원가입</button>
+            <!-- 
+              -- Form Data --
+              id           : 아이디(학번, 교번)
+              password     : 비밀번호
+              name         : 이름
+              phone-number : 전화번호
+              email        : 이메일
+              address      : 주소
+              role         : 회원 유형(학생, 교수, 직원)
+              department   : 학과
+              enter-date   : 입학 날짜
+              grad-date    : 졸업 예정일
+            -->
+            <form action="" method="post" class="signup-form">
+              <div class="signup-form-sections-wrapper">
+                <div class="signup-form-section signup-form-left">
+                  <label class="signup-label" for="signup-id">학번(교번)</label>
+                  <input
+                    id="signup-id"
+                    class="input-text"
+                    name="id"
+                    type="text"
+                    pattern="\d{1,20}"
+                    required
+                  />
+
+                  <label class="signup-label" for="signup-pw">비밀번호</label>
+                  <input
+                    id="signup-pw"
+                    class="input-text"
+                    name="password"
+                    type="password"
+                    required
+                  />
+
+                  <label class="signup-label" for="signup-name">이름</label>
+                  <input
+                    id="signup-name"
+                    class="input-text"
+                    name="name"
+                    type="text"
+                    required
+                  />
+
+                  <label class="signup-label" for="signup-phone-number"
+                    >전화번호</label
+                  >
+                  <input
+                    class="input-text"
+                    id="signup-phone-number"
+                    name="phone-number"
+                    type="tel"
+                    placeholder="숫자만 입력하세요"
+                    pattern="[0-9]{7,13}"
+                    required
+                  />
+
+                  <label class="signup-label" for="signup-email">이메일</label>
+                  <input
+                    class="input-text"
+                    id="signup-email"
+                    name="email"
+                    type="email"
+                    required
+                  />
+                </div>
+
+                <div class="vertical-divider"></div>
+
+                <div class="signup-form-section signup-form-right">
+                  <label class="signup-label" for="signup-address">주소</label>
+                  <input
+                    class="input-text"
+                    id="signup-address"
+                    name="address"
+                    type="text"
+                    required
+                  />
+
+                  <label class="signup-label" for="signup-role">회원유형</label>
+                  <select class="signup-select" name="role" id="signup-role">
+                    <option class="signup-role-item" value="student" selected>
+                      학생
+                    </option>
+                    <option class="signup-role-item" value="professor">
+                      교수
+                    </option>
+                    <option class="signup-role-item" value="employee">
+                      직원
+                    </option>
+                  </select>
+
+                  <label class="signup-label" for="signup-department"
+                    >학과</label
+                  >
+                  <input
+                    class="input-text"
+                    id="signup-department"
+                    name="department"
+                    type="text"
+                    required
+                  />
+
+                  <!-- <div class="dates wrapper"></div> -->
+                  <label class="signup-label" for="signup-enter-date"
+                    >입학 날짜</label
+                  >
+                  <input
+                    class="input-date"
+                    id="signup-enter-date"
+                    name="enter-date"
+                    type="date"
+                    required
+                  />
+
+                  <label class="signup-label" for="signup-grad-date"
+                    >졸업 예정일</label
+                  >
+                  <input
+                    class="input-date"
+                    id="signup-grad-date"
+                    name="grad-date"
+                    type="month"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="submit signup-submit">
+                회원생성
+              </button>
             </form>
           </div>
         </div>

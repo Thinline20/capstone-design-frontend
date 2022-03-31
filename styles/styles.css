@@ -27,6 +27,10 @@ html {
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 /* 헤더 스타일 정의 */
 .header {
   align-items: flex-center;
@@ -100,3 +104,107 @@ html {
   background-color: #eee;
 }
 /* 헤더 스타일 정의 끝 */
+
+/* form 스타일 */
+form label {
+  color: #3c4257;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+form .input-text {
+  appearance: none;
+  border: 1px solid #bbb;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0 3px none;
+  color: #303441;
+  display: inline-block;
+  font-size: 1.125rem;
+  letter-spacing: 0.03rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  transition-duration: 0.1s;
+  transition-property: box-shadow, border;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+form .input-text:hover {
+  border: 1px solid #333;
+}
+
+form .input-text:focus {
+  border: 1px solid white;
+  box-shadow: 0 0 0 3px #2563eb;
+  outline: none;
+}
+
+form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.--%3E%3Cpath d='m310.6 246.6-127.1 128c-7.1 6.3-15.3 9.4-23.5 9.4s-16.38-3.125-22.63-9.375l-127.1-128C.224 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75s3.12 25.75-6.08 34.85z'/%3E%3C/svg%3E");
+  background-position: calc(100% - 0.7rem);
+  background-repeat: no-repeat;
+  background-size: 0.8rem;
+  border: 1px solid #bbb;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0 3px none;
+  color: black;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  transition-duration: 0.1s;
+  transition-property: box-shadow, border;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+form select:hover {
+  border: 1px solid #333;
+}
+
+form select:focus {
+  border: 1px solid white;
+  box-shadow: 0 0 0 3px #2563eb;
+  outline: none;
+}
+
+form .input-date {
+  appearance: none;
+  border: 1px solid #bbb;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0 3px none;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  transition-property: box-shadow, border;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+form .input-date:hover {
+  border: 1px solid black;
+}
+
+form .input-date:focus {
+  outline: none;
+  border: 1px solid white;
+  box-shadow: 0 0 0 3px #2563eb;
+}
+
+form .submit {
+  appearance: none;
+  background-color: #0284c7;
+  border: none;
+  border-radius: 0.4rem;
+  color: white;
+  display: inline-block;
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+form .submit:hover {
+  background-color: #0369a1;
+}
+form .submit:active {
+  background-color: #0ea5e9;
+}
