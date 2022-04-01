@@ -23,7 +23,6 @@ html {
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-
   width: 100%;
 }
 
@@ -57,7 +56,8 @@ html {
 
 .top-navbar-main {
   display: flex;
-  gap: 1.2rem;
+  font-size: 1.05rem;
+  gap: 1.6rem;
   order: 1;
 }
 
@@ -66,12 +66,48 @@ html {
   text-decoration: none;
 }
 
+.top-navbar-main-item {
+  align-items: center;
+  display: flex;
+  height: 5rem;
+  position: relative;
+}
+
 .top-navbar-link {
   transition: color 0.08s cubic-bezier(0.12, 0, 0.39, 0);
 }
 
 .top-navbar-link:hover {
   color: #1a47fc;
+}
+
+.top-navbar-dropdown {
+  background-color: #1155a7;
+  display: none;
+  padding: 1rem 0;
+  position: absolute;
+  top: 5rem;
+  width: 13rem;
+}
+
+.top-navbar-main-item:hover > .top-navbar-dropdown {
+  display: block;
+}
+
+/* delete */
+.top-navbar-main-item:nth-child(1) .top-navbar-dropdown {
+  display: block;
+}
+/* delete */
+
+.top-navbar-dropdown-item {
+  padding: 0.5rem 1rem;
+}
+
+.top-navbar-dropdown .top-navbar-dropdown-link {
+  color: white;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .top-navbar-side {
@@ -208,3 +244,4 @@ form .submit:hover {
 form .submit:active {
   background-color: #0ea5e9;
 }
+/* form 스타일 정의 끝 */
