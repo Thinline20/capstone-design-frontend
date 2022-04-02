@@ -84,6 +84,7 @@ html {
 .top-navbar-dropdown {
   background-color: #1155a7;
   display: none;
+  left: -1rem;
   padding: 1rem 0;
   position: absolute;
   top: 5rem;
