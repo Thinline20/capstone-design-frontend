@@ -1,0 +1,70 @@
+/**
+ * @prettier
+ */
+
+main {
+  display: flex;
+}
+
+/* left side */
+.main-left {
+  height: 100%;
+  position: fixed;
+  width: 40rem;
+}
+
+.search-form-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(50vh - 5rem);
+}
+
+.search-form {
+}
+
+.search-wrapper {
+  display: flex;
+}
+
+.search-wrapper .search-input {
+  appearance: none;
+  border: none;
+  border: 3px solid #2563eb;
+  font-size: 1.125rem;
+  outline: none;
+  padding: 0.7rem 0.8rem;
+  transition-duration: 0.1s;
+  transition-property: border;
+  width: 18rem;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-wrapper .search-input:focus {
+}
+
+.search-wrapper .search-submit {
+  appearance: none;
+  background-color: #2563eb;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  transition-duration: 0.1s;
+  transition-property: border;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-wrapper .search-submit:hover {
+}
+
+.search-submit-icon {
+  color: white;
+}
+
+/* right side */
+.main-right {
+  /* flex-grow: 1; */
+  height: 100%;
+  margin-left: 40rem;
+}

@@ -14,8 +14,8 @@ html {
 
 .root {
   background-color: var(--color-background);
-  height: 100vh;
-  width: 100vw;
+  height: min(100vh, 100%);
+  width: min(100vw, 100&);
 }
 
 .container {
@@ -35,7 +35,6 @@ html {
   align-items: flex-center;
   border-bottom: 1px solid #ccc;
   display: flex;
-  flex-wrap: none;
   font-size: 1.125rem;
   height: 5rem;
   position: relative;
