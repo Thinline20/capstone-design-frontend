@@ -35,8 +35,8 @@ main {
   padding: 0.7rem 0.8rem;
   transition-duration: 0.1s;
   transition-property: border;
-  width: 18rem;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 18rem;
 }
 
 .search-wrapper .search-input:focus {
@@ -50,12 +50,6 @@ main {
   outline: none;
   padding-left: 0.8rem;
   padding-right: calc(0.8rem + 3px);
-  transition-duration: 0.1s;
-  transition-property: border;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.search-wrapper .search-submit:hover {
 }
 
 .search-submit-icon {
