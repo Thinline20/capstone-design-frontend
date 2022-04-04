@@ -81,20 +81,16 @@ html {
 
 .top-navbar-dropdown {
   background-color: #1555a3;
-  display: none;
   left: -1rem;
   padding: 1rem 0;
   position: absolute;
   top: 5rem;
   width: 13rem;
+  z-index: 10000;
 }
 
 .top-navbar-main-item:hover .top-navbar-link {
   color: #113add;
-}
-
-.top-navbar-main-item:hover > .top-navbar-dropdown {
-  display: block;
 }
 
 .top-navbar-dropdown-item {
