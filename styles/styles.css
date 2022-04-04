@@ -15,7 +15,7 @@ html {
 .root {
   background-color: var(--color-background);
   height: min(100vh, 100%);
-  width: min(100vw, 100&);
+  width: min(100vw, 100%);
 }
 
 .container {
@@ -130,6 +130,7 @@ html {
   border: none;
   border-radius: 0.4rem;
   padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
   transition: background-color 0.08s cubic-bezier(0.12, 0, 0.39, 0);
 }
 
