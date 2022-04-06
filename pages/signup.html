@@ -26,8 +26,8 @@
   <body>
     <div class="root">
       <!-- 상단 헤더 -->
-      <header class="header">
-        <div class="container top-navbar">
+      <header class="header flex align-center">
+        <div class="container top-navbar flex align-center">
           <nav class="top-navbar-daejin">
             <a href="/" class="daejin-logo"
               ><img
@@ -36,8 +36,8 @@
             /></a>
           </nav>
           <nav class="top-navbar-main-wrapper">
-            <ul class="top-navbar-main">
-              <li class="top-navbar-main-item">
+            <ul class="top-navbar-main flex">
+              <li class="top-navbar-main-item flex align-center">
                 <a class="top-navbar-link" href="/">대학소개</a>
                 <ul class="top-navbar-dropdown hidden">
                   <li class="top-navbar-dropdown-item">
@@ -73,7 +73,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="top-navbar-main-item">
+              <li class="top-navbar-main-item flex align-center">
                 <a class="top-navbar-link" href="/">입학</a>
                 <ul class="top-navbar-dropdown hidden">
                   <li class="top-navbar-dropdown-item">
@@ -87,7 +87,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="top-navbar-main-item">
+              <li class="top-navbar-main-item flex align-center">
                 <a class="top-navbar-link" href="/">대학/대학원</a>
                 <ul class="top-navbar-dropdown hidden">
                   <li class="top-navbar-dropdown-item">
@@ -101,7 +101,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="top-navbar-main-item">
+              <li class="top-navbar-main-item flex align-center">
                 <a class="top-navbar-link" href="/">중국캠퍼스</a>
                 <ul class="top-navbar-dropdown hidden">
                   <li class="top-navbar-dropdown-item">
@@ -112,7 +112,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="top-navbar-main-item">
+              <li class="top-navbar-main-item flex align-center">
                 <a class="top-navbar-link" href="/">학사/장학</a>
                 <ul class="top-navbar-dropdown hidden">
                   <li class="top-navbar-dropdown-item">
@@ -132,7 +132,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="top-navbar-main-item">
+              <li class="top-navbar-main-item flex align-center">
                 <a class="top-navbar-link" href="/">정보광장</a>
                 <ul class="top-navbar-dropdown hidden">
                   <li class="top-navbar-dropdown-item">
@@ -166,7 +166,7 @@
               </li>
             </ul>
           </nav>
-          <nav class="top-navbar-side">
+          <nav class="top-navbar-side flex justify-end">
             <button class="open-navbar">
               <i class="fa-solid fa-bars fa-xl"></i>
             </button>
@@ -193,9 +193,15 @@
               enter-date(학생) : 입학 날짜
               grad-date(학생)  : 졸업 예정일
             -->
-            <form action="" method="post" class="signup-form flex flex-column align-center">
+            <form
+              action=""
+              method="post"
+              class="signup-form flex flex-column align-center"
+            >
               <div class="signup-form-sections-wrapper flex flex-row">
-                <div class="signup-form-section signup-form-left flex flex-column">
+                <div
+                  class="signup-form-section signup-form-left flex flex-column"
+                >
                   <label class="signup-label" for="signup-id">학번(교번)</label>
                   <input
                     id="signup-id"
@@ -254,7 +260,9 @@
 
                 <div class="vertical-divider"></div>
 
-                <div class="signup-form-section signup-form-right flex flex-column">
+                <div
+                  class="signup-form-section signup-form-right flex flex-column"
+                >
                   <label class="signup-label" for="signup-address">주소</label>
                   <input
                     class="input-text"
