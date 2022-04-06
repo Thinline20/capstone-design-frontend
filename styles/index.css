@@ -2,10 +2,6 @@
  * @prettier
  */
 
-main {
-  display: flex;
-}
-
 /* left side */
 .main-left {
   min-height: calc(100% - 5rem);
@@ -14,19 +10,10 @@ main {
 }
 
 .search-form-wrapper {
-  display: flex;
-  justify-content: center;
   margin-top: calc(50vh - 5rem - 1rem);
   transition-duration: 0.2s;
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
-}
-
-.search-form {
-}
-
-.search-wrapper {
-  display: flex;
 }
 
 .search-wrapper .search-input {
@@ -75,10 +62,9 @@ main {
 }
 
 .main-right-contents .row1 {
-
 }
 
 .main-img {
-  width: 100%;
   filter: opacity(40%) blur(1px);
+  width: 100%;
 }

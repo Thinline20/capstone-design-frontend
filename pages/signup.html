@@ -176,8 +176,10 @@
 
       <main>
         <!-- 회원생성 -->
-        <div class="container signup-container">
-          <div class="signup-box">
+        <div
+          class="container signup-container flex justify-center align-center"
+        >
+          <div class="signup-box flex justify-center align-center">
             <!-- 
               -- Form Data --
               id              : 아이디(학번, 교번)
@@ -191,9 +193,9 @@
               enter-date(학생) : 입학 날짜
               grad-date(학생)  : 졸업 예정일
             -->
-            <form action="" method="post" class="signup-form">
-              <div class="signup-form-sections-wrapper">
-                <div class="signup-form-section signup-form-left">
+            <form action="" method="post" class="signup-form flex flex-column align-center">
+              <div class="signup-form-sections-wrapper flex flex-row">
+                <div class="signup-form-section signup-form-left flex flex-column">
                   <label class="signup-label" for="signup-id">학번(교번)</label>
                   <input
                     id="signup-id"
@@ -252,7 +254,7 @@
 
                 <div class="vertical-divider"></div>
 
-                <div class="signup-form-section signup-form-right">
+                <div class="signup-form-section signup-form-right flex flex-column">
                   <label class="signup-label" for="signup-address">주소</label>
                   <input
                     class="input-text"
