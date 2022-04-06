@@ -4,14 +4,23 @@
 
 let lastScrollTop = window.pageYOffset || document.body.scrollTop;
 let searchBox = document.querySelector(".search-form-wrapper");
+let bottomNavbar = document.querySelector(".bottom-navbar");
+
+if (document.documentElement.scrollTop > 150) {
+  searchBox.style.transform = "none";
+}
 
 window.addEventListener("scroll", () => {
   let currentScrollTop = document.documentElement.scrollTop;
-  console.log(currentScrollTop)
 
-  if (currentScrollTop > 100) {
-    searchBox.style.marginTop = `max(calc(45vh - 15rem), calc(50vh - 5rem - ${currentScrollTop}px + 90px))`;
+  if (currentScrollTop > 80 || lastScrollTop > 80) {
   }
 
-  lastScrollTop = currentScrollTop;
+  if (currentScrollTop > 150 || lastScrollTop > 150) {
+    searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
+  } else {
+    searchBox.style.transform = "none";
+  }
+
+  lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
 });
