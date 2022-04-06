@@ -8,14 +8,22 @@
 }
 
 html {
+  background-color: var(--color-background);
   font-family: "Noto Sans", sans-serif;
   font-family: "Noto Sans KR", sans-serif;
 }
 
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
 .root {
-  background-color: var(--color-background);
-  height: min(100vh, 100%);
-  width: min(100vw, 100%);
+  height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100%;
 }
 
 .container {
@@ -28,6 +36,54 @@ html {
 
 .hidden {
   display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-col-1 {
+  grid-column: span 1;
+}
+
+.grid-col-2 {
+  grid-column: span 2;
+}
+
+.grid-col-3 {
+  grid-column: span 3;
+}
+
+.grid-col-4 {
+  grid-column: span 4;
+}
+
+.grid-col-5 {
+  grid-column: span 5;
+}
+
+.grid-row-1 {
+  grid-row: span 1;
+}
+
+.grid-row-2 {
+  grid-row: span 2;
+}
+
+.grid-row-3 {
+  grid-row: span 3;
+}
+
+.grid-row-4 {
+  grid-row: span 4;
+}
+
+.grid-row-5 {
+  grid-row: span 5;
 }
 
 /* 헤더 스타일 정의 */
@@ -129,8 +185,8 @@ html {
   background-color: var(--color-background);
   border: none;
   border-radius: 0.4rem;
-  padding-top: 0.3rem;
   padding-bottom: 0.3rem;
+  padding-top: 0.3rem;
   transition: background-color 0.08s cubic-bezier(0.12, 0, 0.39, 0);
 }
 
@@ -138,6 +194,17 @@ html {
   background-color: #eee;
 }
 /* 헤더 스타일 정의 끝 */
+
+/* 푸터 스타일 정의 */
+
+.footer {
+}
+
+.bottom-navbar {
+  width: 100%;
+}
+
+/* 푸터 스타일 정의 끝 */
 
 /* form 스타일 */
 form label {
