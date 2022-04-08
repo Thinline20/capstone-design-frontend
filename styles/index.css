@@ -2,7 +2,11 @@
  * @prettier
  */
 
-/* left side */
+.main-container {
+  padding-right: 0;
+}
+
+/* 메인 페이지 왼쪽 */
 .main-left {
   min-height: calc(100% - 5rem);
   position: fixed;
@@ -29,7 +33,9 @@
   width: 18rem;
 }
 
-.search-wrapper .search-input:focus {
+.search-wrapper .search-input::selection {
+  background-color: #fd8585;
+  color: white;
 }
 
 .search-wrapper .search-submit {
@@ -46,13 +52,14 @@
   color: white;
 }
 
-/* right side */
+/* 메인 페이지 오른쪽 */
 .main-right {
   background-color: rgb(227, 201, 244);
   flex-grow: 1;
   height: 100%;
   margin-left: 40rem;
   min-height: calc(100vh - 5rem);
+  padding-right: 1rem;
 }
 
 .main-right-contents {
@@ -71,39 +78,55 @@
   justify-content: center;
 }
 
+.main-right-menu {
+  height: 18rem;
+}
+
 .main-right-menu .input-tab {
   display: none;
 }
 
 .main-right-menu .tabs {
   flex-wrap: wrap;
+  position: relative;
   width: 100%;
 }
 
 .main-right-menu .tab {
-  background-color: white;
-  border-radius: 0.4rem 0.4rem 0 0;
+  background-color: #343436;
+  border-radius: 1rem 1rem 0 0;
+  color: white;
   cursor: pointer;
   font-weight: 500;
+  letter-spacing: 0.05rem;
   order: 1;
-  padding: 1rem 2rem;
-  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem 2rem 1.3rem;
+  transition-duration: 0.1s;
+  transition-property: background-color color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 25%;
+}
+
+.main-right-menu .tab:hover {
+  background-color: #454546;
+}
+
+.main-right-menu .input-tab:checked + .tab {
+  background-color: white;
+  color: black;
 }
 
 .main-right-menu .tab-content {
   background-color: white;
-  border-radius: 0.4rem;
+  border-radius: 1rem 1rem 0.4rem 0.4rem;
   display: none;
   flex-grow: 1;
-  /* grid-template-columns: repeat(3, 1fr); */
   grid-template-columns: repeat(3, 1fr);
   order: 9;
   padding: 1rem;
+  position: absolute;
+  top: 2.9rem;
   width: 100%;
-}
-
-.main-right-menu .input-tab:checked + .tab {
-  background-color: pink;
 }
 
 .main-right-menu .input-tab:checked + .tab + .tab-content {
@@ -121,11 +144,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
   width: max-content;
-}
-
-.main-right-menu .menu-link:hover > a {
-  background-color: #efa52d;
 }
 
 .main-right-menu .menu-link a {
@@ -137,17 +157,25 @@
   display: flex;
   height: 4rem;
   justify-content: center;
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   width: 4rem;
 }
 
+.main-right-menu .menu-link:hover > a {
+  background-color: #2d91ef;
+}
+
+.main-right-menu .menu-link:active > a {
+  background-color: #2b56b5;
+}
+
+/* 메인 페이지 오른쪽 카드들 스타일 */
+
 .card {
-  align-items: center;
-  /* border-radius: 0 0 0.4rem 0.4rem; */
   border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  justify-content: center;
 }
 
 .card a {
@@ -155,16 +183,25 @@
 }
 
 .card a img {
-  width: 100%;
   border-radius: 0.4rem;
+  width: 100%;
 }
 
-.card h2 {
+.card .text-link {
+  margin-left: 1rem;
+  text-decoration: none;
+  width: max-content;
+}
+
+.card .text-link h2 {
   font-size: 3rem;
   font-weight: 600;
+  text-align: center;
+  width: max-content;
 }
 
 .card p {
+  margin-bottom: 0.5rem;
   padding: 0.3rem 1rem;
 }
 
@@ -177,7 +214,23 @@
   color: white;
 }
 
+.card1 p::selection {
+  background-color: #5a2def;
+  color: white;
+}
+
 .card2 {
+  background-color: #70fda1;
+}
+
+.card2 .text-link h2 {
+  color: rgb(32, 32, 32);
+  font-size: 2.5rem;
+}
+
+.card2 p::selection {
+  background-color: #fd7c70;
+  color: white;
 }
 
 .card3 {
