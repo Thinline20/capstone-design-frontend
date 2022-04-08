@@ -66,8 +66,8 @@
 }
 
 .row1:nth-child(1) {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
@@ -81,17 +81,18 @@
 }
 
 .main-right-menu .tab {
+  background-color: white;
+  border-radius: 0.4rem 0.4rem 0 0;
   cursor: pointer;
   font-weight: 500;
   order: 1;
   padding: 1rem 2rem;
   transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 0.4rem 0.4rem 0 0;
-  background-color: white;
 }
 
 .main-right-menu .tab-content {
   background-color: white;
+  border-radius: 0.4rem;
   display: none;
   flex-grow: 1;
   /* grid-template-columns: repeat(3, 1fr); */
@@ -99,7 +100,6 @@
   order: 9;
   padding: 1rem;
   width: 100%;
-  border-radius: 0.4rem;
 }
 
 .main-right-menu .input-tab:checked + .tab {
@@ -141,8 +141,44 @@
 }
 
 .card {
-  background-color: #efa52d;
+  align-items: center;
+  /* border-radius: 0 0 0.4rem 0.4rem; */
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  justify-content: center;
 }
 
-.card .main-img {
+.card a {
+  width: 100%;
+}
+
+.card a img {
+  width: 100%;
+  border-radius: 0.4rem;
+}
+
+.card h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.card p {
+  padding: 0.3rem 1rem;
+}
+
+.card1 {
+  background-color: #efa52d;
+  grid-row: 2 / 4;
+}
+
+.card1 h2 {
+  color: white;
+}
+
+.card2 {
+}
+
+.card3 {
 }
