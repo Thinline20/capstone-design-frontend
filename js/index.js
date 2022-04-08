@@ -24,3 +24,30 @@ window.addEventListener("scroll", () => {
 
   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
 });
+
+// let menuTabs = document.querySelectorAll(".menu-input-tab");
+// menuTabs.forEach((element) => {
+//   element.addEventListener("change", () => {
+//     let content = document.querySelector(
+//       `#menu-tab-content${element.id.slice(-1)}`
+//     );
+
+//     if (content.classList.contains("hidden")) {
+//       content.classList.remove("hidden");
+//     }
+
+//     for (let i = 1; i <= menuTabs.length; ++i) {
+//       if (i != element.id.slice(-1)) {
+//         if (!content.classList.contains("hidden")) {
+          
+//         }
+//       }
+//     }
+//   });
+// });
+
+// function setTabDisplay(element) {
+//   if (element.getAttribute("checked")) {
+//     console.log("checked");
+//   }
+// }

@@ -174,8 +174,9 @@
         </div>
       </header>
 
+      <!-- 메인 페이지 왼쪽 -->
       <main class="container flex">
-        <div class="main-left">
+        <div class="main-left flex flex-column">
           <div class="search-form-wrapper flex justify-center">
             <form class="search-form" action="" method="get">
               <div class="search-wrapper flex">
@@ -188,29 +189,322 @@
                 />
                 <button class="search-submit" type="submit">
                   <i
-                    class="search-submit-icon fa-solid fa-lg fa-magnifying-glass"
+                    class="search-submit-icon fa-solid fa-xl fa-magnifying-glass"
                   ></i>
                 </button>
               </div>
             </form>
           </div>
+          <div class="user-specific-info flex justify-center">
+            <a href="#">내 학과</a>
+          </div>
         </div>
 
+        <!-- 메인 페이지 오른쪽 -->
         <div class="main-right">
           <div class="main-right-contents">
             <div class="grid">
-              <div class="row1 grid-item grid-col-3">
-                <a href="#">
+              <div class="row1 grid-col-2">
+                <a href="#">포털대진</a>
+              </div>
+              <div class="row1 grid-col-5">
+                <div class="menu main-right-menu">
+                  <div
+                    class="tabs flex justify-center align-center"
+                    id="main-right-menu-tabs"
+                  >
+                    <input
+                      class="input-tab"
+                      type="radio"
+                      id="input-tab-item1"
+                      name="menu-tab"
+                      checked
+                    />
+                    <label
+                      class="tab flex justify-center align-center"
+                      id="tab1"
+                      for="input-tab-item1"
+                      >재학생</label
+                    >
+                    <div class="tab-content" id="tab-content1">
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-pencil fa-xl"></i>
+                          </a>
+                          <span>수강신청</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <img
+                              src="asset/svg/T-WIN.svg"
+                              alt="T-WIN"
+                              width="34"
+                            />
+                          </a>
+                          <span>T-WIN</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-house-laptop fa-xl"></i>
+                          </a>
+                          <span>e-learning</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-book fa-xl"></i>
+                          </a>
+                          <span>중앙도서관</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-envelope fa-xl"></i>
+                          </a>
+                          <span>웹메일</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <img
+                              src="asset/svg/학생만족서비스.svg"
+                              alt="학생만족서비스"
+                              width="38"
+                            />
+                          </a>
+                          <span>학생만족서비스</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input
+                      class="input-tab"
+                      type="radio"
+                      id="input-tab-item2"
+                      name="menu-tab"
+                    />
+                    <label
+                      class="tab flex justify-center align-center"
+                      id="tab2"
+                      for="input-tab-item2"
+                      >교직원</label
+                    >
+                    <div class="tab-content" id="tab-content2">
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-people-group fa-xl"></i>
+                          </a>
+                          <span>그룹웨어</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <img
+                              src="asset/svg/T-WIN.svg"
+                              alt="T-WIN"
+                              width="34"
+                            />
+                          </a>
+                          <span>T-WIN</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-house-laptop fa-xl"></i>
+                          </a>
+                          <span>e-learning</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-dollar-sign fa-xl"></i>
+                          </a>
+                          <span>발전기금</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-envelope fa-xl"></i>
+                          </a>
+                          <span>웹메일</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-user-check fa-xl"></i>
+                          </a>
+                          <span>전자출결</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input
+                      class="input-tab"
+                      type="radio"
+                      id="input-tab-item3"
+                      name="menu-tab"
+                    />
+                    <label
+                      class="tab flex justify-center align-center"
+                      id="tab3"
+                      for="input-tab-item3"
+                      >일반인</label
+                    >
+                    <div class="tab-content" id="tab-content3">
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-user-tie fa-xl"></i>
+                          </a>
+                          <span>대학원</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-graduation-cap fa-xl"></i>
+                          </a>
+                          <span>DJ-MOOC</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-school fa-xl"></i>
+                          </a>
+                          <span>평생교육원</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-handshake fa-xl"></i>
+                          </a>
+                          <span>산학협력단</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-phone fa-xl"></i>
+                          </a>
+                          <span>전화번호안내</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-map-location fa-xl"></i>
+                          </a>
+                          <span>찾아오시는길</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input
+                      class="input-tab"
+                      type="radio"
+                      id="input-tab-item4"
+                      name="menu-tab"
+                    />
+                    <label
+                      class="tab flex justify-center align-center"
+                      id="tab4"
+                      for="input-tab-item4"
+                      >수험생</label
+                    >
+                    <div class="tab-content" id="tab-content4">
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-circle-info fa-2xl"></i>
+                          </a>
+                          <span>입학안내</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-award fa-xl"></i>
+                          </a>
+                          <span>장학안내</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-torii-gate fa-xl"></i>
+                          </a>
+                          <span>캠퍼스투어</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <img
+                              src="asset/svg/학생만족서비스.svg"
+                              alt="학생만족서비스"
+                              width="38"
+                            />
+                          </a>
+                          <span>학생만족서비스</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-phone fa-xl"></i>
+                          </a>
+                          <span>전화번호안내</span>
+                        </div>
+                      </div>
+                      <div class="menu-link-wrapper">
+                        <div class="menu-link">
+                          <a href="#">
+                            <i class="fa-solid fa-map-location fa-xl"></i>
+                          </a>
+                          <span>찾아오시는길</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row1 grid-col-2"></div>
+
+              <div class="row2 grid-item grid-col-7">
+                <div class="card card1">
                   <img
                     class="main-img main-img-1"
                     src="asset/img/main1.jpg"
-                    alt="main-page-img1"
+                    alt="main page image 1"
                   />
-                </a>
+                </div>
               </div>
-              <div class="row2 grid-item grid-col-2">
-                <h1>Hello</h1>
-              </div>
+              <div class="row2 grid-item grid-col-3"></div>
+
+              <!-- <div class="row3 grid-item grid-col-4"></div>
+              <div class="row3 grid-item grid-col-6">
+                <img
+                  class="main-img main-img-2"
+                  src="asset/img/main2.png"
+                  alt="main page image 2"
+                />
+              </div> -->
             </div>
           </div>
         </div>
