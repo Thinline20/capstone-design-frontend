@@ -340,7 +340,7 @@ form .input-date:focus {
 
 form .submit {
   appearance: none;
-  background-color: #0284c7;
+  background-color: #2563eb;
   border: none;
   border-radius: 0.4rem;
   color: white;
@@ -353,9 +353,9 @@ form .submit {
 }
 
 form .submit:hover {
-  background-color: #0369a1;
+  background-color: #2d91ef;
 }
 form .submit:active {
-  background-color: #0ea5e9;
+  background-color: #2b56b5;
 }
 /* form 스타일 정의 끝 */

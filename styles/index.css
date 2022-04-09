@@ -2,7 +2,13 @@
  * @prettier
  */
 
+:root {
+  --shadow-main-right-content: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
 .main-container {
+  padding-left: 0;
   padding-right: 0;
 }
 
@@ -14,7 +20,8 @@
 }
 
 .search-form-wrapper {
-  margin-top: calc(50vh - 5rem - 1rem);
+  margin-bottom: auto;
+  margin-top: 5rem;
   transition-duration: 0.2s;
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
@@ -53,8 +60,8 @@
 }
 
 /* 메인 페이지 오른쪽 */
+
 .main-right {
-  background-color: rgb(227, 201, 244);
   flex-grow: 1;
   height: 100%;
   margin-left: 40rem;
@@ -63,22 +70,15 @@
 }
 
 .main-right-contents {
-}
-
-.main-right-contents .grid {
   gap: 1.5rem;
   grid-template-columns: repeat(10, 1fr);
   margin-top: 2rem;
-  row-gap: 1.5rem;
-}
-
-.row1:nth-child(1) {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  row-gap: 2rem;
 }
 
 .main-right-menu {
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow-main-right-content);
   height: 18rem;
 }
 
@@ -94,7 +94,7 @@
 
 .main-right-menu .tab {
   background-color: #343436;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 0.4rem 0.4rem 0 0;
   color: white;
   cursor: pointer;
   font-weight: 500;
@@ -102,7 +102,7 @@
   order: 1;
   padding: 1rem 2rem 1.3rem;
   transition-duration: 0.1s;
-  transition-property: background-color color;
+  transition-property: background-color color box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 25%;
 }
@@ -113,19 +113,21 @@
 
 .main-right-menu .input-tab:checked + .tab {
   background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
   color: black;
+  z-index: 1;
 }
 
 .main-right-menu .tab-content {
   background-color: white;
-  border-radius: 1rem 1rem 0.4rem 0.4rem;
+  border-radius: 0 0 0.4rem 0.4rem;
   display: none;
   flex-grow: 1;
   grid-template-columns: repeat(3, 1fr);
   order: 9;
-  padding: 1rem;
-  position: absolute;
-  top: 2.9rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
   width: 100%;
 }
 
@@ -142,17 +144,23 @@
 
 .main-right-menu .menu-link {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   width: max-content;
 }
 
+.main-right-menu .menu-link:hover > span {
+  text-decoration: underline;
+  text-decoration-color: #2563eb;
+  text-decoration-thickness: 1px;
+}
+
 .main-right-menu .menu-link a {
   align-items: center;
   background-color: #2563eb;
   border-radius: 50%;
-  color: black;
   color: white;
   display: flex;
   height: 4rem;
@@ -169,10 +177,37 @@
   background-color: #2b56b5;
 }
 
-/* 메인 페이지 오른쪽 카드들 스타일 */
+.main-right .login-box {
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow-main-right-content);
+  overflow: hidden;
+  perspective: 500px;
+}
+
+.main-right .login-box .slide {
+  height: 100%;
+  position: relative;
+  transform: translateX(0);
+  transition-duration: 1s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.main-right .login-box .slide-side {
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+}
+
+.main-right .login-box .slide-back {
+  transform: translateX(100%);
+}
 
 .card {
   border-radius: 0.4rem;
+  box-shadow: var(--shadow-main-right-content);
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -201,8 +236,9 @@
 }
 
 .card p {
-  margin-bottom: 0.5rem;
-  padding: 0.3rem 1rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .card1 {
