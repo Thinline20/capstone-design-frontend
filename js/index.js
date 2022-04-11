@@ -20,24 +20,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const slideButton = createElement(
       "button",
       { className: "slide-button" },
-      "로그인하기"
+      [
+        createElement("span", null, "로그인하기"),
+        createElement("span", null, "클릭")
+      ]
     );
     slideButton.addEventListener("click", () => {
       loginSlide.style.transform = "translateX(-100%)";
     });
 
+    slideButton.mouse
+
     const loginDescription = createElement(
       "div",
       {
         className:
-          "login-description slide-side slide-front flex flex-column justify-center",
+          "login-description slide-side slide-front flex flex-column",
       },
       [
         createElement("h2", null, "로그인"),
         createElement("p", null, [
-          "학생, 대학원, 시간강사 : 전체 정보서비스",
+          "학생, 대학원, 시간강사: 전체 정보서비스",
           createElement("br"),
-          "교원, 직원, 조교 : 그룹웨어 및 포털대진을 제외한 정보서비스",
+          "교원, 직원, 조교: 그룹웨어 및 포털대진을 제외한 정보서비스",
         ]),
         createElement(
           "div",
