@@ -28,49 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
     searchBox.style.transform = "none";
   }
 
-  // window.addEventListener("scroll", () => {
-  //   let currentScrollTop = document.documentElement.scrollTop;
+  window.addEventListener("scroll", () => {
+    let currentScrollTop = document.documentElement.scrollTop;
 
-  //   if (currentScrollTop > 80 || lastScrollTop > 80) {
-  //   }
+    if (currentScrollTop > 80 || lastScrollTop > 80) {
+    }
 
-  //   if (currentScrollTop > 150 || lastScrollTop > 150) {
-  //     searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
-  //   } else {
-  //     searchBox.style.transform = "none";
-  //   }
+    if (currentScrollTop > 150 || lastScrollTop > 150) {
+      searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
+    } else {
+      searchBox.style.transform = "none";
+    }
 
-  //   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-  // });
-
-  // let menuTabs = document.querySelectorAll(".menu-input-tab");
-  // menuTabs.forEach((element) => {
-  //   element.addEventListener("change", () => {
-  //     let content = document.querySelector(
-  //       `#menu-tab-content${element.id.slice(-1)}`
-  //     );
-
-  //     if (content.classList.contains("hidden")) {
-  //       content.classList.remove("hidden");
-  //     }
-
-  //     for (let i = 1; i <= menuTabs.length; ++i) {
-  //       if (i != element.id.slice(-1)) {
-  //         if (!content.classList.contains("hidden")) {
-
-  //         }
-  //       }
-  //     }
-  //   });
-  // });
-
-  // function setTabDisplay(element) {
-  //   if (element.getAttribute("checked")) {
-  //     console.log("checked");
-  //   }
-  // }
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+  });
 });
 
+// 로그인 박스 생성
 function createLoginBox() {
   const loginSlide = document.createElement("div");
   loginSlide.classList.add("slide");
@@ -173,6 +147,7 @@ function createLoginBox() {
   loginBox.append(loginSlide);
 }
 
+// 로그아웃 박스 생성
 function createLogoutBox() {
   const logoutBox = document.querySelector(".main-right .login-box");
   logoutBox.classList.remove("login-box");
