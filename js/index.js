@@ -7,7 +7,8 @@ import { LoginType } from "./api/requestTypes.js";
 import { createElement } from "./core/createElement.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (!isLoggedIn()) {
+  console.log("H")
+  if (true) {
     // 로그인 정보가 없을 경우
     createLoginBox();
   } else {
@@ -128,7 +129,10 @@ function createLoginBox() {
       const loginData = LoginType(formData.id, formData.pw);
 
       // const res = await request(HttpMethod.post, "/");
-      console.log(loginData);
+
+      if (res.statusCode === 200) {
+
+      }
     } catch (err) {
       console.log(err);
     }

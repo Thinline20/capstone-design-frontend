@@ -3,7 +3,7 @@
  */
 
 import { Maybe } from "../utils/maybe.js";
-import { getCookieData, deleteCookie } from "./cookie.js";
+import { setCookie, getCookieData, deleteCookie } from "./cookie.js";
 import { HttpMethod, request } from "../api/request.js";
 import { SessionType } from "../api/requestTypes.js";
 
@@ -23,10 +23,20 @@ class App {
     }
   }
 
+  createCookie(id, role, session) {
+    setCookie("id", id);
+    setCookie("role", role);
+    setCookie("session", session);
+  }
+
   clearCookie() {
     deleteCookie("id");
     deleteCookie("role");
     deleteCookie("session");
+  }
+
+  getCookie() {
+    
   }
 }
 
