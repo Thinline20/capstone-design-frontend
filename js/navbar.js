@@ -2,18 +2,22 @@
  * @prettier
  */
 
-document.querySelectorAll(".top-navbar-main-item").forEach((element) => {
-  let dropdownItem = element.children[1];
+import app from "./core/App.js";
 
-  element.addEventListener("mouseover", () => {
-    if (dropdownItem.classList.contains("hidden")) {
-      dropdownItem.classList.remove("hidden");
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".top-navbar-main-item").forEach((element) => {
+    let dropdownItem = element.children[1];
 
-  element.addEventListener("mouseout", () => {
-    if (!dropdownItem.classList.contains("hidden")) {
-      dropdownItem.classList.add("hidden");
-    }
+    element.addEventListener("mouseover", () => {
+      if (dropdownItem.classList.contains("hidden")) {
+        dropdownItem.classList.remove("hidden");
+      }
+    });
+
+    element.addEventListener("mouseout", () => {
+      if (!dropdownItem.classList.contains("hidden")) {
+        dropdownItem.classList.add("hidden");
+      }
+    });
   });
 });

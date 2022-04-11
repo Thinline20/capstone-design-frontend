@@ -1,3 +1,7 @@
 /**
  * @prettier
  */
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+});

@@ -2,14 +2,9 @@
  * @prettier
  */
 
-import { isLoggedIn } from "./core/loginInfo.js";
+import { HttpMethod, request } from "./api/request.js";
+import { LoginType } from "./api/requestTypes.js";
 import { createElement } from "./core/createElement.js";
-
-if (
-  document.readyState === "interactive" ||
-  document.readyState === "complete"
-) {
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   if (!isLoggedIn()) {
@@ -125,6 +120,19 @@ function createLoginBox() {
       ),
     ]
   );
+
+  loginForm.addEventListener("submit", async function (e) {
+    try {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(e.target).entries());
+      const loginData = LoginType(formData.id, formData.pw);
+
+      // const res = await request(HttpMethod.post, "/");
+      console.log(loginData);
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
   const findAccount = createElement(
     "a",
