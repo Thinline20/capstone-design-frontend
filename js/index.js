@@ -12,7 +12,7 @@ if (
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (true) {
+  if (!isLoggedIn()) {
     // 로그인 정보가 없을 경우
     const loginSlide = document.createElement("div");
     loginSlide.classList.add("slide");
@@ -120,7 +120,19 @@ document.addEventListener("DOMContentLoaded", () => {
     loginBox.append(loginSlide);
   } else {
     // 로그인 정보가 없을 경우
-    const logoutBox = createElement("div", {}, []);
+    const logoutBox = document.querySelector(".main-right .login-box");
+    logoutBox.classList.remove("login-box");
+    logoutBox.classList.add("logout-box");
+
+    const logoutDescription = createElement("div", {className: "logout-description"}, [
+
+    ]);
+    const logoutButton = createElement("button", {className: "logout-button"}, [
+      createElement("span", null, "로그아웃"),
+      createElement("span", null, "클릭")
+    ]);
+
+    logoutBox.append(logoutButton);
   }
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
   let searchBox = document.querySelector(".search-form-wrapper");
