@@ -205,6 +205,57 @@
   transform: translateX(100%);
 }
 
+.main-right .login-box .login-description {
+  color: #3c4257;
+  gap: 1rem;
+}
+
+.main-right .login-box .login-description h2 {
+  font-size: 1.75rem;
+  letter-spacing: 0.05rem;
+}
+
+.main-right .login-box .login-description p {
+  font-size: 0.8rem;
+}
+
+.main-right .login-box /slide-button-wrapper {
+  
+}
+
+.main-right .login-box .slide-button {
+  appearance: none;
+  font-size: 1.125rem;
+  letter-spacing: 0.05rem;
+  outline: none;
+  max-width: 9rem;
+  padding: 0.5rem 1rem;
+}
+
+.main-right .login-box .slide-button:hover {
+
+}
+
+.main-right .login-box .slide-button:active {
+
+}
+
+.main-right .login-box .login-form {
+  color: #3c4257;
+  gap: 0.5rem;
+}
+
+.main-right .login-box .find-account {
+  color: black;
+  font-size: 0.9rem;
+  text-align: right;
+  text-decoration: none;
+}
+
+.main-right .login-box .find-account:hover {
+  text-decoration: underline;
+}
+
 .card {
   border-radius: 0.4rem;
   box-shadow: var(--shadow-main-right-content);

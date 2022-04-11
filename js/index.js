@@ -12,7 +12,7 @@ if (
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (!isLoggedIn()) {
+  if (true) {
     // 로그인 정보가 없을 경우
     const loginSlide = document.createElement("div");
     loginSlide.classList.add("slide");
@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginDescription = createElement(
       "div",
       {
-        className: "login-description slide-side slide-front",
+        className:
+          "login-description slide-side slide-front flex flex-column justify-center",
       },
       [
         createElement("h2", null, "로그인"),
@@ -38,7 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
           createElement("br"),
           "교원, 직원, 조교 : 그룹웨어 및 포털대진을 제외한 정보서비스",
         ]),
-        slideButton,
+        createElement(
+          "div",
+          { className: "slide-button-wrapper flex justify-center" },
+          slideButton
+        ),
       ]
     );
 
@@ -46,9 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = createElement(
       "form",
       {
-        className: "login-form slide-side slide-back flex flex-column",
+        className: "login-form flex flex-column justify-center",
         method: "post",
-        action: "",
       },
       [
         createElement(
@@ -87,15 +91,25 @@ document.addEventListener("DOMContentLoaded", () => {
           { type: "submit", className: "submit" },
           "로그인"
         ),
-        createElement(
-          "a",
-          { href: "#", className: "find-account" },
-          "학번/비밀번호 찾기"
-        ),
       ]
     );
 
-    loginSlide.append(loginDescription, loginForm);
+    const findAccount = createElement(
+      "a",
+      { href: "#", className: "find-account" },
+      "학번/비밀번호 찾기"
+    );
+
+    const loginFormWrapper = createElement(
+      "div",
+      {
+        className:
+          "login-form-wrapper slide-side slide-back flex flex-column justify-center",
+      },
+      [loginForm, findAccount]
+    );
+
+    loginSlide.append(loginDescription, loginFormWrapper);
 
     const loginBox = document.querySelector(".main-right .login-box");
     loginBox.append(loginSlide);
