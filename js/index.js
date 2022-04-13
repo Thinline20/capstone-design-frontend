@@ -2,19 +2,18 @@
  * @prettier
  */
 
-import { HttpMethod, request } from "./api/request.js";
-import { LoginType } from "./api/requestTypes.js";
 import { createElement } from "./core/createElement.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("H")
+  /* 프론트 js */
   if (true) {
-    // 로그인 정보가 없을 경우
+    // 로그인 정보가 있을 경우
     createLoginBox();
   } else {
-    // 로그인 정보가 있을 경우
+    // 로그인 정보가 없을 경우
     createLogoutBox();
   }
+  /* 프론트 js 끝*/
 
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
   let searchBox = document.querySelector(".search-form-wrapper");
@@ -81,6 +80,7 @@ function createLoginBox() {
     {
       className: "login-form flex flex-column justify-center",
       method: "post",
+      action: "",
     },
     [
       createElement(
@@ -95,6 +95,7 @@ function createLoginBox() {
         type: "text",
         pattern: "d{1,20}",
         required: true,
+        autocomplete: "username",
         title: "학번(교번)은 20자리 이하입니다.",
       }),
 
@@ -110,6 +111,7 @@ function createLoginBox() {
         type: "password",
         pattern: "[a-zA-Z0-9!@#$%^&*.,?;:]{1,100}",
         required: true,
+        autocomplete: "current-password",
         title:
           "비밀번호는 100자리 이하입니다. 알파벳 대소문자, 숫자, 특수문자(!@#$%^&*.,?;:)를 사용할 수 있습니다.",
       }),
@@ -122,35 +124,20 @@ function createLoginBox() {
     ]
   );
 
-  loginForm.addEventListener("submit", async function (e) {
-    try {
-      e.preventDefault();
-      const formData = Object.fromEntries(new FormData(e.target).entries());
-      const loginData = LoginType(formData.id, formData.pw);
-
-      // const res = await request(HttpMethod.post, "/");
-
-      if (res.statusCode === 200) {
-
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  });
-
-  const findAccount = createElement(
-    "a",
-    { href: "#", className: "find-account" },
-    "학번/비밀번호 찾기"
-  );
-
   const loginFormWrapper = createElement(
     "div",
     {
       className:
         "login-form-wrapper slide-side slide-back flex flex-column justify-center",
     },
-    [loginForm, findAccount]
+    [
+      loginForm,
+      createElement(
+        "a",
+        { href: "#", className: "find-account" },
+        "학번/비밀번호 찾기"
+      ),
+    ]
   );
 
   loginSlide.append(loginDescription, loginFormWrapper);

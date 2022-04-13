@@ -14,14 +14,14 @@
 
 /* 메인 페이지 왼쪽 */
 .main-left {
-  min-height: calc(100% - 5rem);
+  min-height: 50vh;
   position: fixed;
   width: 40rem;
 }
 
 .search-form-wrapper {
   margin-bottom: auto;
-  margin-top: 5rem;
+  margin-top: 20rem;
   transition-duration: 0.2s;
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
@@ -77,11 +77,13 @@
 }
 
 .main-right .grid-item {
+  background-color: white;
   border-radius: 0.4rem;
   box-shadow: var(--shadow-main-right-content);
 }
 
 .main-right-menu {
+  background-color: rgb(250, 250, 249);
   height: 18rem;
 }
 
@@ -90,6 +92,7 @@
 }
 
 .main-right-menu .tabs {
+  background-color: rgb(250, 250, 249);
   flex-wrap: wrap;
   position: relative;
   width: 100%;
@@ -97,7 +100,7 @@
 
 .main-right-menu .tab {
   background-color: #343436;
-  border-radius: 0.4rem 0.4rem 0 0;
+  border-radius: 0.8rem 0.8rem 0 0;
   color: white;
   cursor: pointer;
   font-weight: 500;
@@ -222,20 +225,23 @@
 }
 
 .main-right .login-box .slide-button {
-  position: relative;
-  overflow: hidden;
+  background-color: white;
   border: 1px solid #18181a;
   color: #18181a;
+  cursor: pointer;
   display: inline-block;
   font-size: 1rem;
   line-height: 1rem;
+  overflow: hidden;
   padding: 1rem;
+  position: relative;
   text-decoration: none;
-  cursor: pointer;
-  background: #fff;
+  touch-action: manipulation;
+  transition-duration: 600ms;
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.48, 0, 0.12, 1);
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
   width: 10rem;
 }
 
@@ -246,44 +252,54 @@
 }
 
 .main-right .login-box .slide-button span:last-child {
+  bottom: 0;
   color: white;
   display: block;
-  position: absolute;
-  bottom: 0;
-  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 100;
-  opacity: 0;
-  top: 50%;
-  left: 50%;
-  transform: translateY(225%) translateX(-50%);
   height: 1rem;
+  left: 50%;
   line-height: 1rem;
   margin-top: 0.5rem;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(225%) translateX(-50%);
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
 }
 
 .main-right .login-box .slide-button:after {
-  content: "";
-  position: absolute;
-  bottom: -50%;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: black;
-  transform-origin: bottom center;
-  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  bottom: -50%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
   transform: skewY(9.3deg) scaleY(0);
-  z-index: 50;  
+  transform-origin: bottom center;
+  transition-duration: 600ms;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.48, 0, 0.12, 1);
+  width: 100%;
+  z-index: 50;
+}
+
+.main-right .login-box .slide-button:hover {
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
 .main-right .login-box .slide-button:hover:after {
-  transform-origin: bottom center;
   transform: skewY(9.3deg) scaleY(2);
+  transform-origin: bottom center;
 }
 
 .main-right .login-box .slide-button:hover span:last-child {
-  transform: translateX(-50%) translateY(-100%);
   opacity: 1;
+  transform: translateX(-50%) translateY(-100%);
   transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+.main-right .login-box .login-form-wrapper > * {
+  padding-inline: 1rem;
 }
 
 .main-right .login-box .login-form {
@@ -306,20 +322,23 @@
 }
 
 .main-right .logout-box .logout-button {
-  position: relative;
-  overflow: hidden;
+  background: #fff;
   border: 1px solid #18181a;
   color: #18181a;
+  cursor: pointer;
   display: inline-block;
   font-size: 1rem;
   line-height: 1rem;
+  overflow: hidden;
   padding: 1rem;
+  position: relative;
   text-decoration: none;
-  cursor: pointer;
-  background: #fff;
+  touch-action: manipulation;
+  transition-duration: 600ms;
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.48, 0, 0.12, 1);
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
   width: 10rem;
 }
 
@@ -330,111 +349,129 @@
 }
 
 .main-right .logout-box .logout-button span:last-child {
+  bottom: 0;
   color: white;
   display: block;
-  position: absolute;
-  bottom: 0;
-  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 100;
-  opacity: 0;
-  top: -50%;
-  left: 50%;
-  transform: translateY(225%) translateX(-50%);
   height: 1rem;
+  left: 50%;
   line-height: 1rem;
   margin-top: -0.5rem;
+  opacity: 0;
+  position: absolute;
+  top: -50%;
+  transform: translateY(225%) translateX(-50%);
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
 }
 
 .main-right .logout-box .logout-button:after {
+  background-color: black;
   content: "";
+  height: 100%;
+  left: 0;
   position: absolute;
   top: -150%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  transform-origin: bottom center;
-  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
   transform: skewY(9.3deg) scaleY(0);
-  z-index: 50;  
+  transform-origin: bottom center;
+  transition-duration: 600ms;
+  transition-property: transform box-shadow;
+  transition-timing-function: cubic-bezier(0.48, 0, 0.12, 1);
+  width: 100%;
+  z-index: 50;
+}
+
+.main-right .logout-box .logout-button:hover {
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
 .main-right .logout-box .logout-button:hover:after {
-  transform-origin: bottom center;
   transform: skewY(9.3deg) scaleY(-2);
+  transform-origin: bottom center;
 }
 
 .main-right .logout-box .logout-button:hover span:last-child {
-  transform: translateX(-50%) translateY(300%);
   opacity: 1;
+  transform: translateX(-50%) translateY(300%);
   transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 
-.card {
+.main-right .card {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.card a {
+.main-right .card a {
   width: 100%;
 }
 
-.card a img {
+.main-right .card a img {
+  aspect-ratio: 5 / 3;
   border-radius: 0.4rem;
+  object-fit: cover;
   width: 100%;
 }
 
-.card .text-link {
+.main-right .card .text-link {
   margin-left: 1rem;
   text-decoration: none;
   width: max-content;
 }
 
-.card .text-link h2 {
+.main-right .card .text-link h2 {
   font-size: 3rem;
   font-weight: 600;
   text-align: center;
+  transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   width: max-content;
 }
 
-.card p {
+.main-right .card p {
   padding-bottom: 0.8rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.banner {
-
+.main-right .banner {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-.card1 {
+.main-right .banner img {
+}
+
+.main-right .card1 {
   background-color: #efa52d;
   grid-row: 2 / 4;
 }
 
-.card1 h2 {
+.main-right .card1 h2 {
   color: white;
 }
 
-.card1 p::selection {
+.main-right .card1 h2:hover {
+  color: #5a2def;
+}
+
+.main-right .card1 p::selection {
   background-color: #5a2def;
   color: white;
 }
 
-.card2 {
+.main-right .card2 {
   background-color: #70fda1;
 }
 
-.card2 .text-link h2 {
+.main-right .card2 .text-link h2 {
   color: rgb(32, 32, 32);
   font-size: 2.5rem;
 }
 
-.card2 p::selection {
+.main-right .card2 p::selection {
   background-color: #fd7c70;
   color: white;
 }
 
-.card3 {
+.main-right .card3 {
 }
