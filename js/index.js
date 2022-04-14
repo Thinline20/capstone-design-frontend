@@ -93,7 +93,7 @@ function createLoginBox() {
         id: "main-login-id",
         className: "input-text",
         type: "text",
-        pattern: "d{1,20}",
+        pattern: "[0-9]{1,20}",
         required: true,
         autocomplete: "username",
         title: "학번(교번)은 20자리 이하입니다.",

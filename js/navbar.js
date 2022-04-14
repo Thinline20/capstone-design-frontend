@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // 쿠키
-  if (true) {
+  if (false) {
     // 로그인 정보가 없을 경우
     if (document.location.pathname !== "/") {
       // 현재 페이지가 메인 페이지가 아닐 경우
@@ -77,9 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "로그아웃"
       );
+      wrapper.append(logoutButton);
     }
-
-    wrapper.append(logoutButton);
   }
 
   topNavbarSide.insertBefore(wrapper, insertLocation);
