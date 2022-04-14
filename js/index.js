@@ -7,10 +7,10 @@ import { createElement } from "./core/createElement.js";
 document.addEventListener("DOMContentLoaded", () => {
   /* 프론트 js */
   if (true) {
-    // 로그인 정보가 있을 경우
+    // 로그인 정보가 없을 경우
     createLoginBox();
   } else {
-    // 로그인 정보가 없을 경우
+    // 로그인 정보가 있을 경우
     createLogoutBox();
   }
   /* 프론트 js 끝*/
@@ -84,12 +84,12 @@ function createLoginBox() {
     [
       createElement(
         "label",
-        { className: "login-label", for: "login-id" },
+        { className: "login-label", htmlFor: "id" },
         "학번(교번)"
       ),
       createElement("input", {
         name: "id",
-        id: "main-login-id",
+        id: "id",
         className: "input-text",
         type: "text",
         pattern: "[0-9]{1,20}",
@@ -100,13 +100,13 @@ function createLoginBox() {
 
       createElement(
         "label",
-        { className: "login-label", for: "login-pw" },
+        { className: "login-label", htmlFor: "pw" },
         "비밀번호"
       ),
       createElement("input", {
-        id: "main-login-pw",
-        className: "input-text",
         name: "pw",
+        id: "pw",
+        className: "input-text",
         type: "password",
         pattern: "[a-zA-Z0-9!@#$%^&*.,?;:]{1,100}",
         required: true,
