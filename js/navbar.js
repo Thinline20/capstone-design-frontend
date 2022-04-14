@@ -72,7 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
           className: "logout-button",
           onclick: () => {
             // 로그아웃 구현
-            window.location.reload();
+            $.post("../logout", {}, function (data) {
+              data = JSON.parse(data);
+              if (data.msg == "ok") {
+                $.removeCookie("id");
+                window.location.reload();
+              } else {
+                alert(data.msg);
+              }
+            });
           },
         },
         "로그아웃"
