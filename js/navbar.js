@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // 쿠키
-  if (false) {
+  if (true) {
     // 로그인 정보가 없을 경우
     if (document.location.pathname !== "/") {
       // 현재 페이지가 메인 페이지가 아닐 경우
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.append(loginButton);
     }
 
+    /* 프론트 js */
     // 만약 사용자 정보가 직원일 경우
     const role = "student";
     if (role === "employee") {
