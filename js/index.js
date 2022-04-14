@@ -80,7 +80,6 @@ function createLoginBox() {
     {
       className: "login-form flex flex-column justify-center",
       method: "post",
-      action: "",
     },
     [
       createElement(
