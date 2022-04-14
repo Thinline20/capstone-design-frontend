@@ -116,9 +116,14 @@ function createLoginBox() {
           "비밀번호는 100자리 이하입니다. 알파벳 대소문자, 숫자, 특수문자(!@#$%^&*.,?;:)를 사용할 수 있습니다.",
       }),
 
+      // 로그인 버튼
       createElement(
         "button",
-        { type: "submit", className: "submit" },
+        {
+          type: "submit",
+          className: "submit",
+          onclick: (event) => {},
+        },
         "로그인"
       ),
     ]
