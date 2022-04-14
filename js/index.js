@@ -175,10 +175,27 @@ function createLogoutBox() {
     { className: "logout-description" },
     []
   );
-  const logoutButton = createElement("button", { className: "logout-button" }, [
-    createElement("span", null, "로그아웃"),
-    createElement("span", null, "클릭"),
-  ]);
+  const logoutButton = createElement(
+    "button",
+    {
+      className: "logout-button",
+      onclick: (event) => {
+        $.post("../logout", {}, function (data) {
+          data = JSON.parse(data);
+          if (data.msg == "ok") {
+            $.removeCookie("id");
+            window.location.reload();
+          } else {
+            alert(data.msg);
+          }
+        });
+      },
+    },
+    [
+      createElement("span", null, "로그아웃"),
+      createElement("span", null, "클릭"),
+    ]
+  );
 
   logoutBox.append(logoutButton);
 }
