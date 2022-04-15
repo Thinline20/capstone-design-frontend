@@ -12,6 +12,7 @@ $(document).on("click", "#idCheck", function () {
 });
 
 export function getUserCookieData() {
+  // 예시
   // return new Just({
   //   id: "user1",
   //   department: "컴퓨터공학과",
