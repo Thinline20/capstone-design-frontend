@@ -81,8 +81,33 @@
   background-color: white;
   border-radius: 0.4rem;
   box-shadow: var(--shadow-main-right-content);
-  width: 100%;
   height: 100%;
+  width: 100%;
+}
+
+.main-right-nav-side {
+}
+
+.main-right-nav-side .grid {
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  padding: 1rem;
+  width: 100%;
+}
+
+.main-right-nav-side .grid > .button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-right-nav-side .button-wrapper button {
+  width: 8rem;
+  height: 5rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
 }
 
 .main-right-nav-menu {
@@ -96,10 +121,10 @@
 
 .main-right-nav-menu .tabs {
   background-color: rgb(250, 250, 249);
+  border-radius: 0 0 0.4rem 0.4rem;
   flex-wrap: wrap;
   position: relative;
   width: 100%;
-  border-radius: 0 0 0.4rem 0.4rem;
 }
 
 .main-right-nav-menu .tab {

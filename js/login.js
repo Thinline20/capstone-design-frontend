@@ -2,19 +2,13 @@
  * @prettier
  */
 
+import { login } from "./api/back.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".login-box").addEventListener("submit", (event) => {
+    event.preventDefault();
     const id = $("#id").val();
     const pw = $("#pw").val();
-
-    $.post("../login", { id, pw }, function (data) {
-      data = JSON.parse(data);
-      if (id) {
-        $.cookie("id", id);
-        alert(id + "가 아이디" + pw + "가 비번");
-      } else {
-        alert(data.msg);
-      }
-    });
+    login(document.location.pathname, id, pw);
   });
 });

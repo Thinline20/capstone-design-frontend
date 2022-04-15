@@ -7,10 +7,13 @@
   --color-background: rgb(250, 250, 249);
 }
 
-html {
-  background-color: var(--color-background);
+* {
   font-family: "Noto Sans", sans-serif;
   font-family: "Noto Sans KR", sans-serif;
+}
+
+html {
+  background-color: var(--color-background);
 }
 
 body,
@@ -221,7 +224,7 @@ html {
 }
 
 .top-navbar-side .buttons {
-  gap: 1rem;
+  gap: 0.5rem;
   margin-right: 1rem;
 }
 
@@ -242,12 +245,11 @@ html {
 }
 
 .top-navbar-side .buttons button {
+  background-color: rgb(250, 250, 249);
   border: none;
-  outline: none;
-  background-color:rgb(250, 250, 249);
-  font-size: 1.125rem;
   font-family: "Noto Sans KR";
-
+  font-size: 1.125rem;
+  outline: none;
 }
 
 .open-navbar {

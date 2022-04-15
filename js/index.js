@@ -3,17 +3,24 @@
  */
 
 import { createElement } from "./core/createElement.js";
+import {
+  getUserCookieData,
+  getDepartmentUrl,
+  login,
+  logout,
+} from "./api/back.js";
+import { Maybe } from "./utils/maybe.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* 프론트 js */
-  if (true) {
+  const userData = Maybe.withDefault(null, getUserCookieData());
+
+  if (!userData) {
     // 로그인 정보가 없을 경우
     createLoginBox();
   } else {
     // 로그인 정보가 있을 경우
-    createLogoutBox();
+    createLogoutBox(userData);
   }
-  /* 프론트 js 끝*/
 
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
   let searchBox = document.querySelector(".search-form-wrapper");
@@ -29,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentScrollTop > 80 || lastScrollTop > 80) {
     }
 
-    if (currentScrollTop > 150 || lastScrollTop > 150) {
+    if (currentScrollTop > 200 || lastScrollTop > 200) {
       searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
     } else {
       searchBox.style.transform = "none";
@@ -41,6 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 로그인 박스 생성
 function createLoginBox() {
+  const loginBox = document.querySelector(".main-right .user-log");
+
+  if (loginBox.classList.contains("logout-box")) {
+    loginBox.classList.remove("logout-box");
+  }
+  loginBox.classList.add("login-box");
+
   const loginSlide = document.createElement("div");
   loginSlide.classList.add("slide");
 
@@ -75,6 +89,7 @@ function createLoginBox() {
   );
 
   // 로그인 폼
+  /* 프론트 js */
   const loginForm = createElement(
     "form",
     {
@@ -122,18 +137,10 @@ function createLoginBox() {
           type: "submit",
           className: "submit",
           onclick: (event) => {
+            event.preventDefault();
             const id = $("#id").val();
             const pw = $("#pw").val();
-
-            $.post("../login", { id, pw }, function (data) {
-              data = JSON.parse(data);
-              if (id) {
-                $.cookie("id", id);
-                alert(id + "가 아이디" + pw + "가 비번");
-              } else {
-                alert(data.msg);
-              }
-            });
+            login("/", id, pw);
           },
         },
         "로그인"
@@ -159,35 +166,45 @@ function createLoginBox() {
 
   loginSlide.append(loginDescription, loginFormWrapper);
 
-  const loginBox = document.querySelector(".main-right .login-box");
   loginBox.append(loginSlide);
 }
 
 // 로그아웃 박스 생성
-function createLogoutBox() {
-  const logoutBox = document.querySelector(".main-right .login-box");
-  logoutBox.classList.remove("login-box");
+function createLogoutBox(data) {
+  const logoutBox = document.querySelector(".main-right .user-log");
+
+  if (logoutBox.classList.contains("login-box")) {
+    while (logoutBox.hasChildNodes()) {
+      logoutBox.removeChild(logoutBox.firstChild);
+    }
+    logoutBox.classList.remove("login-box");
+  }
   logoutBox.classList.add("logout-box");
 
+  /* 프론트 js */
   const logoutDescription = createElement(
     "div",
     { className: "logout-description" },
-    []
+    [
+      createElement("p", null, `${data.id}님 환영합니다`),
+      createElement(
+        "a",
+        {
+          href: getDepartmentUrl()[data.department],
+        },
+        data.department
+      ),
+    ]
   );
+
+  // 로그아웃 버튼
+  /* 프론트 js */
   const logoutButton = createElement(
     "button",
     {
       className: "logout-button",
       onclick: (event) => {
-        $.post("../logout", {}, function (data) {
-          data = JSON.parse(data);
-          if (data.msg == "ok") {
-            $.removeCookie("id");
-            window.location.reload();
-          } else {
-            alert(data.msg);
-          }
-        });
+        logout("/");
       },
     },
     [
@@ -196,5 +213,5 @@ function createLogoutBox() {
     ]
   );
 
-  logoutBox.append(logoutButton);
+  logoutBox.append(logoutDescription, logoutButton);
 }

@@ -20,6 +20,17 @@
       src="https://kit.fontawesome.com/4788438f48.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+      integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <title>대진대학교</title>
   </head>
@@ -204,8 +215,21 @@
         <!-- 메인 페이지 오른쪽 -->
         <div class="main-right container">
           <div class="main-right-contents grid">
-            <div class="row1 grid-item grid-col-3">
-              <a href=""></a>
+            <div class="row1 grid-item grid-col-3 main-right-nav-side">
+              <div class="grid">
+                <div class="button-wrapper">
+                  <button class="">포털대진</button>
+                </div>
+                <div class="button-wrapper">
+                  <button class="">미정</button>
+                </div>
+                <div class="button-wrapper">
+                  <button class="">전화번호안내</button>
+                </div>
+                <div class="button-wrapper">
+                  <button class="">사이트맵</button>
+                </div>
+              </div>
             </div>
             <div class="row1 grid-item grid-col-4 main-right-nav-menu">
               <div
@@ -476,51 +500,9 @@
             </div>
 
             <div
-              class="row1 grid-item grid-col-3 login-box flex flex-column align-center justify-center"
+              class="row1 grid-item grid-col-3 user-log flex flex-column align-center justify-center"
             >
-              <!-- <div class="slide">
-                <div class="login-description slide-side slide-front">
-                  <h2>로그인</h2>
-                  <p>
-                    학생, 대학원, 시간강사 : 전체 정보서비스<br />
-                    교원, 직원, 조교 : 그룹웨어 및 포털대진을 제외한 정보서비스
-                  </p>
-                  <button class="login-slide-button">로그인하기</button>
-                </div> -->
-              <!--
-                  -- Login Form Data --
-                  id       : 아이디(학반, 교번)
-                  password : 비밀번호
-                -->
-              <!-- <form
-                  action=""
-                  method="post"
-                  class="login-form slide-side slide-back flex flex-column"
-                >
-                  <label class="login-label" for="login-id">학번(교번)</label>
-                  <input
-                    id="login-id"
-                    class="input-text"
-                    name="id"
-                    type="text"
-                    pattern="\d{1,20}"
-                    required
-                    title="학번(교번)은 20자리 이하입니다."
-                  />
-                  <label class="login-label" for="login-pw">비밀번호</label>
-                  <input
-                    id="login-pw"
-                    class="input-text"
-                    name="pw"
-                    type="password"
-                    pattern="[a-zA-Z0-9!@#$%^&*.,?;:]{1,100}"
-                    required
-                    title="비밀번호는 100자리 이하입니다. 알파벳 대소문자, 숫자, 특수문자(!@#$%^&*.,?;:)를 사용할 수 있습니다."
-                  />
-                  <button type="submit" class="submit">로그인</button>
-                  <a class="find-account" href="/">학번/비밀번호 찾기</a>
-                </form>
-              </div> -->
+            <!-- Check index.js file -->
             </div>
 
             <div class="card card1 row2 row3 grid-item grid-col-6">
@@ -587,5 +569,6 @@
 
     <script type="module" src="js/navbar.js"></script>
     <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/api/back.js"></script>
   </body>
 </html>
