@@ -12,13 +12,6 @@ $(document).on("click", "#idCheck", function () {
 });
 
 export function getUserCookieData() {
-  // 예시
-  // return new Just({
-  //   id: "user1",
-  //   department: "컴퓨터공학과",
-  //   role: "employee",
-  // });
-
   const id = $.cookie("id");
 
   if (id) {
@@ -32,13 +25,6 @@ export function getUserCookieData() {
   }
 }
 
-export function getDepartmentUrl() {
-  return {
-    컴퓨터공학과:
-      "http://it.daejin.ac.kr/wslsubjectlist.do?wslID=it&menuCode=006009",
-  };
-}
-
 export function login(path, id, pw) {
   let loginPath = "";
 
@@ -48,6 +34,9 @@ export function login(path, id, pw) {
     loginPath = "../login";
   }
 
+  let result = null;
+
+  $.ajaxSetup({ async: false });
   $.post(loginPath, { id, pw }, function (data) {
     data = JSON.parse(data);
     if (data.id) {
@@ -55,16 +44,20 @@ export function login(path, id, pw) {
       $.cookie("department", data.department);
       $.cookie("role", data.role);
 
-      alert(data.id + "님 환영합니다.");
-      createLogoutBox(data);
+      console.log(data.id + "님 환영합니다.");
+
+      result = data;
     } else {
-      alert(data.msg);
+      throw new Error(data.msg);
     }
   });
+  $.ajaxSetup({ async: true });
+
+  return data;
 }
 
 export function logout(path) {
-  let logoutPath = "";
+  let logoutPath = "/logout";
 
   if (path === "/") {
     logoutPath = "/logout";
@@ -72,13 +65,14 @@ export function logout(path) {
     logoutPath = "../logout";
   }
 
+  $.ajaxSetup({ async: false });
   $.post(logoutPath, {}, function (data) {
     data = JSON.parse(data);
     if (data.msg == "ok") {
       $.removeCookie("id");
-      location.reload();
     } else {
-      alert(data.msg);
+      console.log(data.msg);
     }
   });
+  $.ajaxSetup({ async: true });
 }

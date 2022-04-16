@@ -96,18 +96,50 @@
   width: 100%;
 }
 
-.main-right-nav-side .grid > .button-wrapper {
+.main-right-nav-side .link-wrapper {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.main-right-nav-side .button-wrapper button {
-  width: 8rem;
+.main-right-nav-side .link {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: max-content;
+}
+
+.main-right-nav-side .link > a {
+  align-items: center;
+  background-color: #2563eb;
+  border-radius: 50%;
+  color: white;
+  display: flex;
   height: 5rem;
+  justify-content: center;
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 5rem;
+}
+
+.main-right-nav-side .link > span {
   font-size: 1.125rem;
-  font-weight: 400;
   letter-spacing: 0.05rem;
+}
+
+.main-right-nav-side .link:hover > a {
+  background-color: #2d91ef;
+}
+
+.main-right-nav-side .link:active > a {
+  background-color: #2b56b5;
+}
+
+.main-right-nav-side .link:hover > span {
+  text-decoration: underline;
+  text-decoration-color: #2563eb;
+  text-decoration-thickness: 1px;
 }
 
 .main-right-nav-menu {
@@ -347,7 +379,24 @@
   text-decoration: underline;
 }
 
+/*
+  TODO
+*/
 .main-right .logout-box {
+  height: 100%;
+  padding: 1rem;
+  width: 100%;
+}
+
+.main-right .logout-description {
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.main-right .logout-description p {
+}
+
+.main-right .logout-description a {
 }
 
 .main-right .logout-box .logout-button {

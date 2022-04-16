@@ -2,14 +2,10 @@
  * @prettier
  */
 
-import { createElement } from "./core/createElement.js";
-import {
-  getUserCookieData,
-  getDepartmentUrl,
-  login,
-  logout,
-} from "./api/back.js";
 import { Maybe } from "./utils/maybe.js";
+import { createElement } from "./core/createElement.js";
+import { getUserCookieData, login, logout } from "./api/back.js";
+import { getDepartmentUrl } from "./core/department.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userData = Maybe.withDefault(null, getUserCookieData());
@@ -89,12 +85,25 @@ function createLoginBox() {
   );
 
   // 로그인 폼
-  /* 프론트 js */
   const loginForm = createElement(
     "form",
     {
       className: "login-form flex flex-column justify-center",
       method: "post",
+      onsubmit: async (event) => {
+        try {
+          event.preventDefault();
+          const loginData = Object.fromEntries(
+            new FormData(event.target).entries()
+          );
+
+          const loginResult = login("/", loginData.id, loginData.pw);
+
+          createLogoutBox(loginResult);
+        } catch (err) {
+          window.alert(err);
+        }
+      },
     },
     [
       createElement(
@@ -136,12 +145,6 @@ function createLoginBox() {
         {
           type: "submit",
           className: "submit",
-          onclick: (event) => {
-            event.preventDefault();
-            const id = $("#id").val();
-            const pw = $("#pw").val();
-            login("/", id, pw);
-          },
         },
         "로그인"
       ),
@@ -181,16 +184,15 @@ function createLogoutBox(data) {
   }
   logoutBox.classList.add("logout-box");
 
-  /* 프론트 js */
   const logoutDescription = createElement(
     "div",
-    { className: "logout-description" },
+    { className: "logout-description flex flex-column" },
     [
       createElement("p", null, `${data.id}님 환영합니다`),
       createElement(
         "a",
         {
-          href: getDepartmentUrl()[data.department],
+          href: getDepartmentUrl(data.department),
         },
         data.department
       ),
@@ -198,7 +200,6 @@ function createLogoutBox(data) {
   );
 
   // 로그아웃 버튼
-  /* 프론트 js */
   const logoutButton = createElement(
     "button",
     {
