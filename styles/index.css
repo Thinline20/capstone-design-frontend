@@ -387,7 +387,6 @@
   padding: 1rem;
   width: 100%;
 }
-
 .main-right .logout-description {
   margin-bottom: 3rem;
   width: 100%;
@@ -402,9 +401,6 @@
   padding: 1rem;
   position: relative;
   text-decoration: none;
-  transition-duration: 0.2s;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-right .logout-box .logout-button {
@@ -594,3 +590,4 @@
 .main-right .card4 h2 {
   color: black;
 }
+

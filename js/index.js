@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let searchBox = document.querySelector(".search-form-wrapper");
   let bottomNavbar = document.querySelector(".bottom-navbar");
 
-  if (document.documentElement.scrollTop > 150) {
+  if (document.documentElement.scrollTop > 200) {
+    searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
+  } else {
     searchBox.style.transform = "none";
   }
 
@@ -90,7 +92,7 @@ function createLoginBox() {
     {
       className: "login-form flex flex-column justify-center",
       method: "post",
-      onsubmit: async (event) => {
+      onsubmit: (event) => {
         try {
           event.preventDefault();
           const loginData = Object.fromEntries(

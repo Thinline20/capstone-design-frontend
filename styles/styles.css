@@ -269,10 +269,32 @@ html {
 /* 푸터 스타일 정의 */
 
 .footer {
+  border-top: 1px solid #ccc;
+  height: 8rem;
+  padding-top: 2rem;
+  position: relative;
 }
 
-.bottom-navbar {
-  width: 100%;
+.footer .info-wrapper {
+}
+
+.footer .info {
+  gap: 2rem;
+}
+
+.footer .info .daejin-support {
+}
+
+.footer .info .text-info {
+  font-size: 0.85rem;
+}
+
+.footer .info .text-info .contact {
+  margin-inline: 0.5rem;
+}
+
+.footer .info .text-info .email {
+  text-decoration: none;
 }
 
 /* 푸터 스타일 정의 끝 */
