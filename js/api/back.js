@@ -12,6 +12,12 @@ $(document).on("click", "#idCheck", function () {
 });
 
 export function getUserCookieData() {
+  return new Just({
+    id: "12345678",
+    department: "컴퓨터공학과",
+    role: "employee",
+  });
+
   const id = $.cookie("id");
 
   if (id) {
@@ -48,6 +54,7 @@ export function login(path, id, pw) {
 
       result = data;
     } else {
+      $.ajaxSetup({ async: true });
       throw new Error(data.msg);
     }
   });
@@ -71,7 +78,8 @@ export function logout(path) {
     if (data.msg == "ok") {
       $.removeCookie("id");
     } else {
-      console.log(data.msg);
+      $.ajaxSetup({ async: true });
+      throw new Error(data.msg);
     }
   });
   $.ajaxSetup({ async: true });

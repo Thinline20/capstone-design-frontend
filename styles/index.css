@@ -397,6 +397,14 @@
 }
 
 .main-right .logout-description a {
+  color: black;
+  margin: auto;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-right .logout-box .logout-button {

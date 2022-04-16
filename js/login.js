@@ -7,14 +7,14 @@ import { login } from "./api/back.js";
 document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector(".login-form")
-    .addEventListener("submit", async (event) => {
+    .addEventListener("submit", (event) => {
       try {
         event.preventDefault();
         const loginData = Object.fromEntries(
           new FormData(event.target).entries()
         );
 
-        const loginResult = await login(
+        const loginResult = login(
           document.location.pathname,
           loginData.id,
           loginData.pw

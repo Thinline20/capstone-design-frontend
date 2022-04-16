@@ -194,7 +194,8 @@ function createLogoutBox(data) {
         {
           href: getDepartmentUrl(data.department),
         },
-        data.department
+
+        [createElement("span", null, data.department)]
       ),
     ]
   );
