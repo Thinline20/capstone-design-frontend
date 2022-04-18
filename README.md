@@ -11,7 +11,8 @@
 ## 가이드라인
 아이콘이 필요할 경우 [Font Awesome](https://fontawesome.com/icons)에서 검색해 사용하면 됩니다
 
-새로운 페이지를 만들 경우 template.html을 적절히 수정하여 사용합니다. 코멘트로 "구현 시작"이라 되어있는 부분을 수정합니다.
+새로운 페이지를 만들 경우 template.html을 적절히 수정하여 사용합니다.
+코멘트로 ```구현 시작```이라 되어있는 부분을 수정합니다.
 
 ## Third-party Dependencies
 * [Font Awesome](https://fontawesome.com/)
