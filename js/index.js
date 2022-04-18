@@ -4,7 +4,7 @@
 
 import { Maybe } from "./utils/maybe.js";
 import { createElement } from "./core/createElement.js";
-import { getUserCookieData, login, logout } from "./api/back.js";
+import { getUserCookieData } from "./api/back.js";
 import { getDepartmentUrl } from "./core/department.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
   let searchBox = document.querySelector(".search-form-wrapper");
-  let bottomNavbar = document.querySelector(".bottom-navbar");
 
   if (document.documentElement.scrollTop > 200) {
     searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
@@ -30,9 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", () => {
     let currentScrollTop = document.documentElement.scrollTop;
-
-    if (currentScrollTop > 80 || lastScrollTop > 80) {
-    }
 
     if (currentScrollTop > 200 || lastScrollTop > 200) {
       searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
@@ -86,22 +82,34 @@ function createLoginBox() {
     ]
   );
 
+  /* 프론트엔드 */
   // 로그인 폼
   const loginForm = createElement(
     "form",
     {
       className: "login-form flex flex-column justify-center",
       method: "post",
-      onsubmit: (event) => {
+      onsubmit: async (event) => {
         try {
           event.preventDefault();
           const loginData = Object.fromEntries(
             new FormData(event.target).entries()
           );
 
-          const loginResult = login("/", loginData.id, loginData.pw);
+          $.post("/login", loginData, function (data) {
+            data = JSON.parse(data);
+            if (data.id) {
+              $.cookie("id", id);
+              $.cookie("department", data.department);
+              $.cookie("role", data.role);
 
-          createLogoutBox(loginResult);
+              console.log(data.id + "님 환영합니다.");
+
+              createLogoutBox(data);
+            } else {
+              throw new Error(data.msg);
+            }
+          });
         } catch (err) {
           window.alert(err);
         }
@@ -188,34 +196,62 @@ function createLogoutBox(data) {
 
   const logoutDescription = createElement(
     "div",
-    { className: "logout-description flex flex-column" },
-    [
-      createElement("p", null, `${data.id}님 환영합니다`),
-      createElement(
-        "a",
-        {
-          href: getDepartmentUrl(data.department),
-        },
+    { className: "logout-description flex align-center" },
+    createElement("h3", null, [
+      createElement("span", { className: "user-name" }, data.id),
+      "님 환영합니다",
+    ])
+  );
 
-        [createElement("span", null, data.department)]
+  const logoutButtons = createElement(
+    "div",
+    {
+      className: "buttons flex justify-center align-center",
+    },
+    [
+      createElement(
+        "button",
+        {
+          className: "department-link",
+          onclick: () => {
+            document.location.href = getDepartmentUrl(data.department);
+          },
+        },
+        [
+          createElement("span", null, data.department),
+          createElement("span", null, "클릭"),
+        ]
+      ),
+      /* 프론트엔드 */
+      // 로그아웃 버튼
+      createElement(
+        "button",
+        {
+          className: "logout-button",
+          onclick: async (event) => {
+            try {
+              $.post("/", {}, function (data) {
+                data = JSON.parse(data);
+                if (data.msg == "ok") {
+                  $.removeCookie("id");
+                  $.removeCookie("role");
+                  $.removeCookie("department");
+                } else {
+                  throw new Error(data.msg);
+                }
+              });
+            } catch (err) {
+              console.log(err);
+            }
+          },
+        },
+        [
+          createElement("span", null, "로그아웃"),
+          createElement("span", null, "클릭"),
+        ]
       ),
     ]
   );
 
-  // 로그아웃 버튼
-  const logoutButton = createElement(
-    "button",
-    {
-      className: "logout-button",
-      onclick: (event) => {
-        logout("/");
-      },
-    },
-    [
-      createElement("span", null, "로그아웃"),
-      createElement("span", null, "클릭"),
-    ]
-  );
-
-  logoutBox.append(logoutDescription, logoutButton);
+  logoutBox.append(logoutDescription, logoutButtons);
 }

@@ -2,26 +2,28 @@
  * @prettier
  */
 
-import { login } from "./api/back.js";
-
 document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector(".login-form")
-    .addEventListener("submit", (event) => {
+    .addEventListener("submit", async (event) => {
       try {
         event.preventDefault();
         const loginData = Object.fromEntries(
           new FormData(event.target).entries()
         );
 
-        const loginResult = login(
-          document.location.pathname,
-          loginData.id,
-          loginData.pw
-        );
+        $.post("/login", loginData, function (data) {
+          data = JSON.parse(data);
+          if (data.id) {
+            $.cookie("id", id);
+            $.cookie("department", data.department);
+            $.cookie("role", data.role);
 
-        if (loginResult.id) {
-        }
+            console.log(data.id + "님 환영합니다.");
+          } else {
+            throw new Error(data.msg);
+          }
+        });
       } catch (err) {
         window.alert(err);
       }

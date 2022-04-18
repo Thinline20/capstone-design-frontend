@@ -3,8 +3,11 @@
  */
 
 :root {
+  /* #22 */
   --shadow-main-right-content: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  --shadow-main-right-content-hover: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .main-container {
@@ -82,10 +85,14 @@
   border-radius: 0.4rem;
   box-shadow: var(--shadow-main-right-content);
   height: 100%;
+  transition-duration: 0.5s;
+  transition-property: transform box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
 
-.main-right-nav-side {
+.main-right .grid-item:hover {
+  box-shadow: var(--shadow-main-right-content-hover);
 }
 
 .main-right-nav-side .grid {
@@ -383,27 +390,29 @@
   TODO
 */
 .main-right .logout-box {
+  gap: 5rem;
   height: 100%;
   padding: 1rem;
   width: 100%;
 }
+
 .main-right .logout-description {
-  margin-bottom: 3rem;
   width: 100%;
 }
 
-.main-right .logout-description p {
+.main-right .logout-description h3 {
+  font-size: 1.25rem;
+  margin-left: 1rem;
 }
 
-.main-right .logout-description a {
-  color: black;
-  margin: auto;
-  padding: 1rem;
-  position: relative;
-  text-decoration: none;
+.main-right .logout-description h3 > .user-name {
 }
 
-.main-right .logout-box .logout-button {
+.main-right .logout-box .buttons {
+  gap: 1rem;
+}
+
+.main-right .logout-box button {
   background: #fff;
   border: 1px solid #18181a;
   color: #18181a;
@@ -421,16 +430,16 @@
   transition-timing-function: cubic-bezier(0.48, 0, 0.12, 1);
   user-select: none;
   -webkit-user-select: none;
-  width: 10rem;
+  width: 8.5rem;
 }
 
-.main-right .logout-box .logout-button span:first-child {
+.main-right .logout-box button span:first-child {
   position: relative;
   transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
   z-index: 10;
 }
 
-.main-right .logout-box .logout-button span:last-child {
+.main-right .logout-box button span:last-child {
   bottom: 0;
   color: white;
   display: block;
@@ -446,7 +455,7 @@
   z-index: 100;
 }
 
-.main-right .logout-box .logout-button:after {
+.main-right .logout-box button:after {
   background-color: black;
   content: "";
   height: 100%;
@@ -462,16 +471,16 @@
   z-index: 50;
 }
 
-.main-right .logout-box .logout-button:hover {
+.main-right .logout-box button:hover {
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
-.main-right .logout-box .logout-button:hover:after {
+.main-right .logout-box button:hover:after {
   transform: skewY(9.3deg) scaleY(-2);
   transform-origin: bottom center;
 }
 
-.main-right .logout-box .logout-button:hover span:last-child {
+.main-right .logout-box button:hover span:last-child {
   opacity: 1;
   transform: translateX(-50%) translateY(300%);
   transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
@@ -481,14 +490,9 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  transition-duration: 600ms;
-  transition-property: transform box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-right .card:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transform: scaleX(1.02) scaleY(1.02);
 }
 
@@ -590,4 +594,3 @@
 .main-right .card4 h2 {
   color: black;
 }
-

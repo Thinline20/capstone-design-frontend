@@ -12,6 +12,12 @@ $(document).on("click", "#idCheck", function () {
 });
 
 export function getUserCookieData() {
+  // return new Just({
+  //   id: "1234",
+  //   department: "컴퓨터공학과",
+  //   role: "employee",
+  // });
+
   const id = $.cookie("id");
 
   if (id) {
@@ -23,58 +29,4 @@ export function getUserCookieData() {
   } else {
     return new Nothing();
   }
-}
-
-export function login(path, id, pw) {
-  let loginPath = "";
-
-  if (path === "/") {
-    loginPath = "/login";
-  } else {
-    loginPath = "../login";
-  }
-
-  let result = null;
-
-  $.ajaxSetup({ async: false });
-  $.post(loginPath, { id, pw }, function (data) {
-    data = JSON.parse(data);
-    if (data.id) {
-      $.cookie("id", id);
-      $.cookie("department", data.department);
-      $.cookie("role", data.role);
-
-      console.log(data.id + "님 환영합니다.");
-
-      result = data;
-    } else {
-      $.ajaxSetup({ async: true });
-      throw new Error(data.msg);
-    }
-  });
-  $.ajaxSetup({ async: true });
-
-  return data;
-}
-
-export function logout(path) {
-  let logoutPath = "/logout";
-
-  if (path === "/") {
-    logoutPath = "/logout";
-  } else {
-    logoutPath = "../logout";
-  }
-
-  $.ajaxSetup({ async: false });
-  $.post(logoutPath, {}, function (data) {
-    data = JSON.parse(data);
-    if (data.msg == "ok") {
-      $.removeCookie("id");
-    } else {
-      $.ajaxSetup({ async: true });
-      throw new Error(data.msg);
-    }
-  });
-  $.ajaxSetup({ async: true });
 }

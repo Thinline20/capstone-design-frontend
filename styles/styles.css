@@ -23,10 +23,10 @@ html {
 }
 
 .root {
-  height: 100%;
   max-width: 100%;
   min-height: 100vh;
   min-width: 100%;
+  position: relative;
   width: 100%;
 }
 
@@ -266,16 +266,67 @@ html {
 }
 /* 헤더 스타일 정의 끝 */
 
+/* 메인 컨텐트 스타일 정의 */
+
+.root main {
+  min-height: calc(99vh - 13rem - 0.4rem);
+}
+
+/* 메인 컨텐트 스타일 정의 끝 */
+
 /* 푸터 스타일 정의 */
 
 .footer {
   border-top: 1px solid #ccc;
   height: 8rem;
   padding-top: 2rem;
-  position: relative;
 }
 
-.footer .info-wrapper {
+.footer .bottom-navbar {
+  display: block;
+  height: 3rem;
+  inset: auto 2rem -3rem auto;
+  position: fixed;
+  transition-duration: 0.1s;
+  transition-property: inset;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer .bottom-navbar.active {
+  inset: auto 2rem 1rem auto;
+}
+
+.footer .bottom-navbar.fixed {
+  inset: auto 2rem 6rem auto;
+  position: absolute;
+}
+
+.footer .bottom-navbar .scroll-to-top {
+  appearance: none;
+  background-color: #f43f5e;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  height: 3rem;
+  outline: none;
+  transition-duration: 0.1s;
+  transition-property: background-color box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 3rem;
+}
+
+.footer .bottom-navbar .scroll-to-top:hover {
+  background-color: #fb7185;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.footer .bottom-navbar .scroll-to-top:active {
+  background-color: #e11d48;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.footer .info-wrapper > div {
+  width: 65rem;
 }
 
 .footer .info {
@@ -293,8 +344,17 @@ html {
   margin-inline: 0.5rem;
 }
 
-.footer .info .text-info .email {
+.footer .info .text-info .email a {
+  color: #2563eb;
   text-decoration: none;
+}
+
+.footer .info .text-info .email a:hover {
+  color: #2d91ef;
+}
+
+.footer .info .text-info .email a:active {
+  color: #2b56b5;
 }
 
 /* 푸터 스타일 정의 끝 */
