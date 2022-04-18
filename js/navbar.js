@@ -140,6 +140,8 @@ function createLogoutButton(wrapper) {
       className: "logout-button",
       onclick: async (event) => {
         try {
+          // 프론트 js
+          // TODO
           $.post(document.location.pathname, {}, function (data) {
             data = JSON.parse(data);
             if (data.msg == "ok") {

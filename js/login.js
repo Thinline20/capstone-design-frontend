@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
           new FormData(event.target).entries()
         );
 
+        // 프론트 js
+        // TODO
         $.post("/login", loginData, function (data) {
           data = JSON.parse(data);
           if (data.id) {

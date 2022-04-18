@@ -90,6 +90,8 @@ function createLoginBox() {
       className: "login-form flex flex-column justify-center",
       method: "post",
       onsubmit: async (event) => {
+        // 프론트 js
+        // TODO
         try {
           event.preventDefault();
           const loginData = Object.fromEntries(
@@ -229,6 +231,8 @@ function createLogoutBox(data) {
         {
           className: "logout-button",
           onclick: async (event) => {
+            // 프론트 js
+            // TODO
             try {
               $.post("/", {}, function (data) {
                 data = JSON.parse(data);
