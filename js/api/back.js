@@ -12,11 +12,11 @@ $(document).on("click", "#idCheck", function () {
 });
 
 export function getUserCookieData() {
-  // return new Just({
-  //   id: "1234",
-  //   department: "컴퓨터공학과",
-  //   role: "employee",
-  // });
+  return new Just({
+    id: "1234",
+    department: "컴퓨터공학과",
+    role: "employee",
+  });
 
   const id = $.cookie("id");
 
@@ -29,4 +29,14 @@ export function getUserCookieData() {
   } else {
     return new Nothing();
   }
+}
+
+export async function getUserDetail() {
+  $.get();
+}
+
+export async function createUserDetail() {
+  let tmp = document.createElement("div");
+  data = $.get();
+  tmp.innerHtml = '<div class=""></div>';
 }

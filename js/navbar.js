@@ -55,7 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 하단 내비개이션
+  const footer = document.querySelector(".footer");
   const bottomNavbar = document.querySelector(".bottom-navbar");
+
   if (root.offsetHeight >= 1200) {
     let lastScrollTop = window.pageYOffset || document.body.scrollTop;
 
@@ -115,6 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     bottomNavbar.querySelector(".scroll-to-top").classList.add("hidden");
+    // bottomNavbar.style.height = "0rem";
+    // footer.height = "6rem";
   }
 });
 
