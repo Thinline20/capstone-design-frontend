@@ -2,40 +2,69 @@
  * @prettier
  */
 
-.root {
+:root {
+  --shadow-box: rgba(50, 50, 93, 0.25) 0px 3px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --shadow-box-hover: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+main.container {
   height: 100%;
+  padding-inline: 2rem;
 }
 
 .portal-container {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(4, 1fr);
-  height: 100%;
   margin-bottom: 2rem;
   margin-top: 2rem;
-  row-gap: 1rem;
+  row-gap: 2rem;
   width: 100%;
 }
 
 .portal-container > * {
+  background-color: white;
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow-box);
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* border: 1px solid black; */
 }
 
+.portal-container > *:hover {
+  box-shadow: var(--shadow-box-hover);
+}
+
+/* 구현 시작 */
+
+/* 유저 정보 */
 .user-info {
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
   grid-column: 1 / 3;
   height: 20rem;
 }
 
+/* 박스 */
 .box {
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
   height: 20rem;
 }
 
+.box1 {
+}
+
+.box12 {
+}
+
+/* 버튼들 */
 .control-panel {
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
-  grid-column: 1 / 5;
+  grid-column: 1 / 3;
+  height: 25rem;
+}
+
+/* 추가 정보 */
+.additional-info {
+  grid-column: 3 / 5;
   height: 25rem;
 }
