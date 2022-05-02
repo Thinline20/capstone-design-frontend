@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (
         document.documentElement.scrollTop + window.innerHeight >
-        root.offsetHeight - 80
+        root.offsetHeight - 48
       ) {
         bottomNavbar.style.transitionProperty = "none";
 
@@ -117,8 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     bottomNavbar.querySelector(".scroll-to-top").classList.add("hidden");
-    // bottomNavbar.style.height = "0rem";
-    // footer.height = "6rem";
   }
 });
 

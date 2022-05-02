@@ -38,6 +38,12 @@ html {
   width: 100%;
 }
 
+main {
+  min-height: calc(100% - 11rem);
+  position: relative;
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
@@ -266,25 +272,17 @@ html {
 }
 /* 헤더 스타일 정의 끝 */
 
-/* 메인 컨텐트 스타일 정의 */
-
-.root main {
-  min-height: calc(99vh - 13rem - 0.4rem);
-}
-
-/* 메인 컨텐트 스타일 정의 끝 */
-
 /* 푸터 스타일 정의 */
 
 .footer {
   border-top: 1px solid #ccc;
-  height: 8rem;
-  padding-top: 2rem;
+  height: 6rem;
+  /* padding-top: 2rem; */
 }
 
 .footer .bottom-navbar {
   display: block;
-  height: 3rem;
+  height: 1rem;
   inset: auto 2rem -3rem auto;
   position: fixed;
   transition-duration: 0.1s;
@@ -293,7 +291,7 @@ html {
 }
 
 .footer .bottom-navbar.active {
-  inset: auto 2rem 1rem auto;
+  inset: auto 2rem 3rem auto;
 }
 
 .footer .bottom-navbar.fixed {
@@ -323,6 +321,12 @@ html {
 .footer .bottom-navbar .scroll-to-top:active {
   background-color: #e11d48;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.footer .info-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .footer .info-wrapper > div {

@@ -1,0 +1,41 @@
+/**
+ * @prettier
+ */
+
+.root {
+  height: 100%;
+}
+
+.portal-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  row-gap: 1rem;
+  width: 100%;
+}
+
+.portal-container > * {
+}
+
+.user-info {
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  grid-column: 1 / 3;
+  height: 20rem;
+}
+
+.box {
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  height: 20rem;
+}
+
+.control-panel {
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  grid-column: 1 / 5;
+  height: 25rem;
+}

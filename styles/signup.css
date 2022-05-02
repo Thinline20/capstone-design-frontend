@@ -2,10 +2,8 @@
  * @prettier
  */
 
-main {
-  margin-top: 1rem;
-  position: relative;
-  width: 100%;
+.root {
+  height: 100%;
 }
 
 .signup-container {

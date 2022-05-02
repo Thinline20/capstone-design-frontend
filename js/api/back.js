@@ -31,15 +31,15 @@ export function getUserCookieData() {
   }
 }
 
-export async function getUserDetail() {
-  // $.get();
-  const res = await fetch("get", {});
-  return res.json();
-}
+// export async function getUserDetail() {
+//   // $.get();
+//   const res = await fetch("get", {});
+//   return res.json();
+// }
 
-export async function createUserDetail() {
-  let tmp = document.createElement("div");
-  data = $.get();
-  tmp.innerHtml = '<div class=""></div>';
-  return tmp;
-}
+// export async function createUserDetail() {
+//   let tmp = document.createElement("div");
+//   data = $.get();
+//   tmp.innerHtml = '<div class=""></div>';
+//   return tmp;
+// }
