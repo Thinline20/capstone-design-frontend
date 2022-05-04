@@ -17,3 +17,4 @@
 ## Third-party Dependencies
 * [Font Awesome](https://fontawesome.com/)
 * [minireset](https://github.com/jgthms/minireset.css)
+* [gsap](https://greensock.com/gsap/)
