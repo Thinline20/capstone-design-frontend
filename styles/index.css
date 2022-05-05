@@ -86,7 +86,7 @@
   box-shadow: var(--shadow-main-right-content);
   height: 100%;
   transition-duration: 0.5s;
-  transition-property: transform box-shadow;
+  transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
@@ -495,20 +495,20 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-}
-
-.main-right .card:hover {
-  transform: scaleX(1.02) scaleY(1.02);
+  overflow: hidden;
 }
 
 .main-right .card a {
+  overflow: hidden;
   width: 100%;
 }
 
 .main-right .card a img {
   aspect-ratio: 5 / 3;
-  border-radius: 0.4rem 0.4rem 0 0;
   object-fit: cover;
+  transition-duration: 0.5s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
 
@@ -518,39 +518,55 @@
   width: max-content;
 }
 
-.main-right .card .text-link h2 {
-  font-size: 3rem;
+.main-right .card .text-link .title {
   font-weight: 600;
   text-align: center;
   transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-  width: max-content;
 }
 
-.main-right .card .text-link h2:hover {
+.main-right .card .text-link .title:hover {
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-thickness: 2px;
 }
 
 .main-right .card p {
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.05rem;
   padding-bottom: 0.8rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+.main-right .card p a {
+  text-decoration: none;
+}
+
+.main-right .card:hover a img {
+  transform: scale(1.05);
+}
+
 .main-right .banner {
   align-items: center;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
-.main-right .banner img {
+.main-right .banner a {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-right .banner a img {
+  object-fit: cover;
+  width: 100%;
 }
 
 .main-right .card1 {
-  background-color: #efa52d;
+  background-color: rgb(51, 41, 57);
   grid-row: 2 / 4;
 }
 
@@ -558,12 +574,24 @@
   color: white;
 }
 
-.main-right .card1 h2 {
+.main-right .card1 p a {
+  border-bottom: 1px solid rgb(78, 220, 220);
   color: white;
+  display: inline-block;
+  margin-top: 0.5rem;
+  width: max-content;
 }
 
-.main-right .card1 h2::selection,
-.main-right .card1 p::selection {
+.main-right .card1 p a:hover {
+  color: rgb(76, 236, 243);
+}
+
+.main-right .card1 .title {
+  color: white;
+  font-size: 2rem;
+}
+
+.main-right .card1 *::selection {
   background-color: #5a2def;
   color: white;
 }
@@ -576,13 +604,12 @@
   color: white;
 }
 
-.main-right .card2 h2 {
+.main-right .card2 .title {
   color: white;
   font-size: 2.5rem;
 }
 
-.main-right .card2 h2::selection,
-.main-right .card2 p::selection {
+.main-right .card2 *::selection {
   background-color: #5a2def;
   color: white;
 }
@@ -595,12 +622,11 @@
   color: white;
 }
 
-.main-right .card3 h2 {
+.main-right .card3 .title {
   color: white;
 }
 
-.main-right .card3 h2::selection,
-.main-right .card3 p::selection {
+.main-right .card3 *::selection {
   background-color: #f73170;
 }
 
@@ -609,12 +635,11 @@
   color: white;
 }
 
-.main-right .card4 h2 {
+.main-right .card4 .title {
   color: black;
 }
 
-.main-right .card4 h2::selection,
-.main-right .card4 p::selection {
+.main-right .card4 *::selection {
   background-color: #326ef0;
   color: white;
 }
