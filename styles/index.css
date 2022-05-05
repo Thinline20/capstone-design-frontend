@@ -525,6 +525,8 @@
 }
 
 .main-right .card p {
+  font-weight: 500;
+  letter-spacing: 0.05rem;
   padding-bottom: 0.8rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -544,6 +546,10 @@
   grid-row: 2 / 4;
 }
 
+.main-right .card1 p {
+  color: white;
+}
+
 .main-right .card1 h2 {
   color: white;
 }
@@ -555,7 +561,11 @@
 }
 
 .main-right .card2 {
-  background-color: #30d86a;
+  background-color: #efa52d;
+}
+
+.main-right .card2 p {
+  color: white;
 }
 
 .main-right .card2 h2 {
@@ -565,12 +575,15 @@
 
 .main-right .card2 h2::selection,
 .main-right .card2 p::selection {
-  background-color: #fd70cc;
+  background-color: #5a2def;
   color: white;
 }
 
 .main-right .card3 {
   background-color: #2563eb;
+}
+
+.main-right .card3 p {
   color: white;
 }
 
@@ -590,4 +603,10 @@
 
 .main-right .card4 h2 {
   color: black;
+}
+
+.main-right .card4 h2::selection,
+.main-right .card4 p::selection {
+  background-color: #326ef0;
+  color: white;
 }
