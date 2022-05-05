@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setToggleBlurDesign(toggleBlur);
   toggleBlurLabels.forEach((label) => {
     label.style.transition = "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
-  })
+  });
 
   userInfoDataSpans.forEach((dataSpan) => {
     const dataType = dataSpan.dataset.type;
