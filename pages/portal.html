@@ -31,6 +31,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+      integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <title>대진대학교</title>
   </head>
@@ -188,7 +194,90 @@
       <main class="container">
         <!-- 구현 시작 -->
         <div class="portal-container">
-          <div class="user-info">나의 정보</div>
+          <div class="user-info-box">
+            <div class="user-info-wrapper">
+              <div class="user-info-header">
+                <div class="header-wrapper">
+                  <div class="icon"><i class="fa-solid fa-user"></i></div>
+                  <h3>나의 정보</h3>
+                </div>
+                <div class="toggle-blur-wrapper">
+                  <label
+                    class="toggle-blur-label active"
+                    for="toggle-blur-input"
+                    >숨기기</label
+                  >
+                  <label class="toggle-blur-label" for="toggle-blur-input"
+                    >보이기</label
+                  >
+                  <label class="toggle-blur">
+                    <input type="checkbox" id="toggle-blur-input" />
+                    <svg viewBox="0 0 38 24" filter="url(#goo)">
+                      <circle class="default" cx="12" cy="12" r="8" />
+                      <circle class="dot" cx="26" cy="12" r="8" />
+                      <circle class="drop" cx="25" cy="-1" r="2" />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+
+              <div class="user-info">
+                <div class="user-info-data name">
+                  <div class="label">
+                    <span class="label-text">이름/학번</span>
+                  </div>
+                  <div class="data">
+                    <span data-type="name" class="data-text blur"></span>
+                  </div>
+                </div>
+
+                <div class="user-info-data department">
+                  <div class="label">
+                    <span class="label-text">대학/학과</span>
+                  </div>
+                  <div class="data">
+                    <span data-type="department" class="data-text blur"></span>
+                  </div>
+                </div>
+
+                <div class="user-info-data address">
+                  <div class="label">
+                    <span class="label-text">주소</span>
+                  </div>
+                  <div class="data">
+                    <span data-type="address" class="data-text blur"></span>
+                  </div>
+                </div>
+
+                <div class="user-info-data phone">
+                  <div class="label">
+                    <span class="label-text">핸드폰</span>
+                  </div>
+                  <div class="data">
+                    <span data-type="phone" class="data-text blur"></span>
+                  </div>
+                </div>
+
+                <div class="user-info-data email">
+                  <div class="label">
+                    <span class="label-text">이메일</span>
+                  </div>
+                  <div class="data">
+                    <span data-type="email" class="data-text blur"></span>
+                  </div>
+                </div>
+
+                <div class="user-info-data enter">
+                  <div class="label">
+                    <span class="label-text">입학일</span>
+                  </div>
+                  <div class="data">
+                    <span data-type="enter" class="data-text blur"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="box box1">박스 1</div>
           <div class="box box2">박스 2</div>
           <div class="control-panel">버튼들</div>
@@ -252,5 +341,62 @@
 
     <script src="../js/navbar.js" type="module"></script>
     <script src="../js/portal.js" type="module"></script>
+
+    <svg width="0" height="0">
+      <defs>
+        <filter
+          id="goo"
+          x="-50%"
+          width="200%"
+          y="-50%"
+          height="200%"
+          color-interpolation-filters="sRGB"
+        >
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+            result="cm"
+          />
+        </filter>
+        <filter
+          id="goo-light"
+          x="-50%"
+          width="200%"
+          y="-50%"
+          height="200%"
+          color-interpolation-filters="sRGB"
+        >
+          <feGaussianBlur
+            in="SourceGraphic"
+            stdDeviation="1.25"
+            result="blur"
+          />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+            result="cm"
+          />
+        </filter>
+        <filter
+          id="goo-big"
+          x="-50%"
+          width="200%"
+          y="-50%"
+          height="200%"
+          color-interpolation-filters="sRGB"
+        >
+          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+            result="cm"
+          />
+        </filter>
+      </defs>
+    </svg>
   </body>
 </html>

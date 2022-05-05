@@ -7,6 +7,12 @@
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   --shadow-box-hover: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  --c-active: #2563eb;
+  --c-active-inner: #ffffff;
+  --c-default: #d2d6e9;
+  --c-default-dark: #c7cbdf;
+  --c-black: #1b1b22;
 }
 
 main.container {
@@ -41,14 +47,200 @@ main.container {
 /* 구현 시작 */
 
 /* 유저 정보 */
-.user-info {
+.user-info-box {
+  align-items: center;
+  display: flex;
   grid-column: 1 / 3;
-  height: 20rem;
+  height: 25rem;
+  padding: 1rem;
+  padding-inline: 2rem;
+}
+
+.user-info-box .user-info-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.user-info-box .user-info-header .header-wrapper {
+  align-items: center;
+  display: flex;
+  height: max-content;
+}
+
+.user-info-box .user-info-header .icon {
+  align-items: center;
+  background-color: #2563eb;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  height: 1.5rem;
+  justify-content: center;
+  margin-right: 1rem;
+  vertical-align: top;
+  width: 1.5rem;
+}
+
+.user-info-box .user-info-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+
+.user-info-box .toggle-blur-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 0.2rem;
+  justify-content: flex-end;
+  overflow: hidden;
+  perspective: 500px;
+  position: relative;
+  width: 7rem;
+}
+
+.user-info-box .toggle-blur-label {
+  left: 1rem;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.user-info-box .toggle-blur-label:first-child {
+  transform: translateY(-1rem) translateZ(-1rem) rotateX(-90deg);
+}
+
+.user-info-box .toggle-blur-label:first-child.active {
+  transform: none;
+}
+
+.user-info-box .toggle-blur-label:nth-child(2) {
+  transform: translateY(1rem) translateZ(-1rem) rotateX(90deg);
+}
+
+.user-info-box .toggle-blur-label:nth-child(2).active {
+  transform: none;
+}
+
+.user-info-box .toggle-blur {
+  border-radius: var(--border-radius, 12px) var(--border-radius-corner, 12px)
+    var(--border-radius, 12px) var(--border-radius, 12px);
+  display: table;
+  position: relative;
+  --input-width: 38px;
+}
+
+.user-info-box .toggle-blur input {
+  appearance: none;
+  background: var(--input-background, none);
+  border: none;
+  border-radius: inherit;
+  cursor: pointer;
+  display: block;
+  height: var(--input-height, 24px);
+  margin: 0;
+  outline: none;
+  padding: 0;
+  width: var(--input-width, 24px);
+  --input-background: var(--c-default);
+}
+
+.user-info-box .toggle-blur input + svg {
+  --input-background: var(--c-default);
+  --default-s: 1;
+  --default-x: 0px;
+  --dot-s: 0;
+  --dot-x: -8px;
+}
+
+.user-info-box .toggle-blur input:checked {
+  --input-background: var(--c-active);
+}
+
+.user-info-box .toggle-blur input:checked + svg {
+  --default-s: 0;
+  --default-x: 8px;
+  --dot-s: 1;
+  --dot-x: 0px;
+}
+
+.user-info-box .toggle-blur svg {
+  bottom: 0;
+  display: block;
+  fill: var(--c-active-inner);
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(1.01) translateZ(0);
+}
+
+.user-info-box .toggle-blur .default {
+  transform: translateX(var(--default-x)) scale(var(--default-s)) translateZ(0);
+  transform-origin: 12px 12px;
+}
+
+.user-info-box .toggle-blur .dot {
+  transform: translateX(var(--dot-x)) scale(var(--dot-s)) translateZ(0);
+
+  transform-origin: 26px 12px;
+}
+
+.user-info-box .user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  row-gap: 1rem;
+  width: 30rem;
+}
+
+.user-info-box .user-info .user-info-data {
+  align-items: center;
+  border-bottom: 1px solid rgb(225, 223, 223);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.user-info-box .user-info .user-info-data .label {
+  margin-right: 1rem;
+  width: 4rem;
+}
+
+.user-info-box .user-info .user-info-data .label .label-text {
+  align-items: center;
+  color: rgb(153, 153, 153);
+  display: flex;
+  width: max-content;
+}
+
+.user-info-box .user-info .user-info-data .data {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-info-box .user-info .user-info-data .data .data-text {
+  /* color: black;
+  text-shadow: none; */
+  color: transparent;
+  text-shadow: 0 0 0 rgb(0, 0, 0, 1);
+  transition-duration: 0.4s;
+  transition-property: color text-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.user-info-box .user-info .user-info-data .data .data-text.blur {
+  text-shadow: 0 0 12px rgb(0, 0, 0, 0.5);
+}
+
+.user-info-box .user-info .user-info-data .data .data-text.blur::selection {
+  text-shadow: 0 0 12px rgb(0, 0, 0, 0.5);
 }
 
 /* 박스 */
 .box {
-  height: 20rem;
+  height: 25rem;
 }
 
 .box1 {
