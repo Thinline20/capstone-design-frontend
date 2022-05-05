@@ -245,12 +245,59 @@ main.container {
 /* 유저 정보 끝 */
 
 /* 박스 */
-.box {
-  height: 25rem;
+
+.user-related-box {
+  grid-column: 3 / 5;
 }
 
-.box1 {
-  grid-column: 3 / 5;
+.user-related .links {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.user-related .links .link {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: max-content;
+}
+
+.user-related .links .link a {
+  align-items: center;
+  background-color: #2563eb;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  height: 5rem;
+  justify-content: center;
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 5rem;
+}
+
+.user-related .links .link > span {
+  font-size: 1.125rem;
+  letter-spacing: 0.05rem;
+}
+
+.user-related .links .link:hover > a {
+  background-color: #2d91ef;
+}
+
+.user-related .links .link:active > a {
+  background-color: #2b56b5;
+}
+
+.user-related .links .link:hover > span {
+  text-decoration: underline;
+  text-decoration-color: #2d91ef;
+  text-decoration-thickness: 1px;
+}
+
+.user-related .links .link:active > span {
+  text-decoration-color: #2b56b5;
 }
 
 .box2 {

@@ -65,6 +65,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
+  // user related navigation links and various stuff
+  const userRelated = portalContainer.querySelector(".user-related");
+  const userRelatedLinks = userRelated.querySelector(".links");
+
+  const linkSlot = userRelatedLinks.querySelector(".link-slot");
+
+  if (userCookieData.role === "student") {
+    linkSlot.querySelector("i").classList.add("fa-solid", "fa-pencil");
+    linkSlot.querySelector("a").href = "https://dreams2.daejin.ac.kr";
+    linkSlot.querySelector("span").innerText = "수강신청";
+  } else {
+    linkSlot.querySelector("i").classList.add("fa-solid", "fa-people-group");
+    // linkSlot.querySelector("a").href = "https://dreams2.daejin.ac.kr";
+    linkSlot.querySelector("span").innerText = "그룹웨어";
+  }
+
   // control-panel
   const controlPanel = portalContainer.querySelector(".control-panel");
 

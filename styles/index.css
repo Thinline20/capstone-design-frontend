@@ -145,8 +145,12 @@
 
 .main-right-nav-side .link:hover > span {
   text-decoration: underline;
-  text-decoration-color: #2563eb;
+  text-decoration-color: #2d91ef;
   text-decoration-thickness: 1px;
+}
+
+.main-right-nav-side .link:active > span {
+  text-decoration-color: #2b56b5;
 }
 
 .main-right-nav-menu {
@@ -227,8 +231,12 @@
 
 .main-right-nav-menu .menu-link:hover > span {
   text-decoration: underline;
-  text-decoration-color: #2563eb;
+  text-decoration-color: #2d91ef;
   text-decoration-thickness: 1px;
+}
+
+.main-right-nav-menu .menu-link:active > span {
+  text-decoration-color: #2b56b5;
 }
 
 .main-right-nav-menu .menu-link a {
