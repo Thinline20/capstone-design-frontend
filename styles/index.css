@@ -618,11 +618,12 @@
   background-color: #2563eb;
 }
 
-.main-right .card3 p {
+.main-right .card3 .title {
   color: white;
+  font-size: 2.5rem;
 }
 
-.main-right .card3 .title {
+.main-right .card3 p {
   color: white;
 }
 
@@ -630,16 +631,20 @@
   background-color: #f73170;
 }
 
-.main-right .car4 {
-  background-color: #2563eb;
-  color: white;
+.main-right .card4 {
+  background-color: rgb(51, 41, 57);
 }
 
 .main-right .card4 .title {
-  color: black;
+  color: White;
+  font-size: 2.5rem;
+}
+
+.main-right .card4 p {
+  color: white;
 }
 
 .main-right .card4 *::selection {
-  background-color: #326ef0;
+  background-color: #5a2def;
   color: white;
 }

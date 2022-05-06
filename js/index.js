@@ -27,17 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
     searchBox.style.transform = "none";
   }
 
-  window.addEventListener("scroll", () => {
-    let currentScrollTop = document.documentElement.scrollTop;
+  // window.addEventListener("scroll", () => {
+  //   let currentScrollTop = document.documentElement.scrollTop;
 
-    if (currentScrollTop > 200 || lastScrollTop > 200) {
-      searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
-    } else {
-      searchBox.style.transform = "none";
-    }
+  //   if (currentScrollTop > 200 || lastScrollTop > 200) {
+  //     searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
+  //   } else {
+  //     searchBox.style.transform = "none";
+  //   }
 
-    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-  });
+  //   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+  // });
 });
 
 // 로그인 박스 생성
