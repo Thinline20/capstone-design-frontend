@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
   let searchBox = document.querySelector(".search-form-wrapper");
 
-  if (document.documentElement.scrollTop > 200) {
-    searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
-  } else {
-    searchBox.style.transform = "none";
-  }
+  // if (document.documentElement.scrollTop > 200) {
+  //   searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
+  // } else {
+  //   searchBox.style.transform = "none";
+  // }
 
   // window.addEventListener("scroll", () => {
   //   let currentScrollTop = document.documentElement.scrollTop;
