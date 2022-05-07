@@ -13,10 +13,6 @@ const getVar = (key, elem = document.documentElement) =>
 document.addEventListener("DOMContentLoaded", async () => {
   const userCookieData = Maybe.withDefault(null, getUserCookieData());
 
-  if (!userCookieData) {
-    document.location.href = "/";
-  }
-
   const portalContainer = document.querySelector(".portal-container");
 
   // info-box
