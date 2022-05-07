@@ -3,9 +3,11 @@
  */
 
 import { Maybe } from "./utils/maybe.js";
+import { delay } from "./utils/delay.js";
 import { createElement } from "./core/createElement.js";
 import { getUserCookieData } from "./api/back.js";
 import { getDepartmentUrl } from "./core/department.js";
+import { keywordsList } from "./core/searchSuggestionKeywords.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userData = Maybe.withDefault(null, getUserCookieData());
@@ -19,25 +21,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
-  let searchBox = document.querySelector(".search-form-wrapper");
+  const searchBox = document.querySelector(".search-form-wrapper");
+  const daejinLogo = document.querySelector(".main-left .daejin-logo");
 
-  // if (document.documentElement.scrollTop > 200) {
-  //   searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
-  // } else {
-  //   searchBox.style.transform = "none";
-  // }
+  setTimeout(() => {
+    changeSearchSuggestions(0, 1, 2);
+  }, 5000);
 
-  // window.addEventListener("scroll", () => {
-  //   let currentScrollTop = document.documentElement.scrollTop;
+  if (document.documentElement.scrollTop > 200) {
+    searchBox.classList.add("slide-down");
+    daejinLogo.classList.add("fade-in");
+  }
 
-  //   if (currentScrollTop > 200 || lastScrollTop > 200) {
-  //     searchBox.style.transform = "translateY(calc(-5vh - 10rem))";
-  //   } else {
-  //     searchBox.style.transform = "none";
-  //   }
+  window.addEventListener("scroll", () => {
+    let currentScrollTop = document.documentElement.scrollTop;
 
-  //   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-  // });
+    if (currentScrollTop > 200 || lastScrollTop > 200) {
+      searchBox.classList.add("slide-down");
+      daejinLogo.classList.add("fade-in");
+    } else {
+      searchBox.classList.remove("slide-down");
+      daejinLogo.classList.remove("fade-in");
+    }
+
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+  });
 });
 
 // 로그인 박스 생성
@@ -258,4 +266,43 @@ function createLogoutBox(data) {
   );
 
   logoutBox.append(logoutDescription, logoutButtons);
+}
+
+function changeSearchSuggestions(c1, c2, c3) {
+  const searchSuggestions = document.querySelector(
+    ".search-form .search-suggestions .keywords"
+  );
+
+  let random = Math.floor(Math.random() * keywordsList.length);
+  while (random === c1 || random === c2 || random === c3) {
+    random = Math.floor(Math.random() * keywordsList.length);
+  }
+
+  delay(5000)
+    .then(() => {
+      searchSuggestions.children[0].classList.add("fade");
+    })
+    .delay(1000)
+    .then(() => {
+      searchSuggestions.children[1].style.top = "0.2rem";
+      searchSuggestions.children[2].style.top = "1.7rem";
+    })
+    .delay(1000)
+    .then(() => {
+      searchSuggestions.removeChild(searchSuggestions.children[0]);
+    })
+    .delay(1000)
+    .then(() => {
+      const newSuggestion = createElement(
+        "h3",
+        { className: "keyword" },
+        keywordsList[random]
+      );
+
+      searchSuggestions.append(newSuggestion);
+    });
+
+  setTimeout(() => {
+    changeSearchSuggestions(c2, c3, random);
+  }, 9000);
 }

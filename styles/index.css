@@ -23,12 +23,34 @@
   width: 40rem;
 }
 
+.main-left .daejin-logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 5rem;
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-left .daejin-logo.fade-in {
+  opacity: 1;
+}
+
+.main-left .daejin-logo img {
+  width: 18rem;
+}
+
 .search-form-wrapper {
   margin-bottom: auto;
-  margin-top: 20rem;
+  margin-top: 0rem;
+  transform: translateY(-1rem);
   transition-duration: 0.2s;
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.search-form-wrapper.slide-down {
+  transform: translateY(3rem);
 }
 
 .search-wrapper .search-input {
@@ -38,9 +60,6 @@
   font-size: 1.125rem;
   outline: none;
   padding: 0.7rem 0.8rem;
-  transition-duration: 0.1s;
-  transition-property: border;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 18rem;
 }
 
@@ -61,6 +80,48 @@
 
 .search-submit-icon {
   color: white;
+}
+
+.search-suggestions {
+  margin-top: 1rem;
+}
+
+.search-suggestions .description {
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.search-suggestions .keywords {
+  position: relative;
+}
+
+.search-suggestions .keywords .keyword {
+  inset: 0;
+  position: absolute;
+  transition-duration: 1s;
+  transition-property: top opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-suggestions .keywords .keyword::before {
+  content: " - ";
+}
+
+.search-suggestions .keywords .keyword:first-child {
+  top: 0.2rem;
+}
+
+.search-suggestions .keywords .keyword:nth-child(2) {
+  top: 1.7rem;
+}
+
+.search-suggestions .keywords .keyword:nth-child(3) {
+  top: 3.2rem;
+}
+
+.search-suggestions .keywords .keyword.fade {
+  opacity: 0;
 }
 
 /* 메인 페이지 오른쪽 */
