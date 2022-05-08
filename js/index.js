@@ -20,6 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
     createLogoutBox(userData);
   }
 
+  const boardList = document.getElementById("board-list");
+  boardList.addEventListener("click", () => {
+    window.open(
+      "boardList",
+      "_blank",
+      "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=400,width=1000,height=700"
+    );
+  });
+
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
   const searchBox = document.querySelector(".search-form-wrapper");
   const daejinLogo = document.querySelector(".main-left .daejin-logo");
