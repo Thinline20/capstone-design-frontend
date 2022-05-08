@@ -126,7 +126,6 @@ function createLoginBox() {
               $.cookie("department", data.department);
               $.cookie("role", data.role);
               window.location.reload();
-              // createLogoutBox(data);
             } else {
               throw new Error(data.msg);
             }
@@ -249,7 +248,7 @@ function createLogoutBox(data) {
         "button",
         {
           className: "logout-button",
-          onclick: async (event) => {
+          onclick: (event) => {
             // 프론트 js
             // TODO
             try {
@@ -264,7 +263,7 @@ function createLogoutBox(data) {
                 }
               });
             } catch (err) {
-              console.log(err);
+              window.alert(err);
             }
           },
         },
