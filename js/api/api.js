@@ -12,13 +12,6 @@ $(document).on("click", "#idCheck", function () {
 });
 
 export function getUserCookieData() {
-  // return new Just({
-  //   id: "12345678",
-  //   department: "컴퓨터공학과",
-  //   // role: "employee",
-  //   role: "student",
-  // });
-
   const id = $.cookie("id");
 
   if (id) {
