@@ -68,8 +68,6 @@ function createLoginBox() {
     loginSlide.style.transform = "translateX(-100%)";
   });
 
-  slideButton.mouse;
-
   const loginDescription = createElement(
     "div",
     {
