@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 프론트 js
         // TODO
-        $.post("/login", loginData, function (data) {
+        $.post("../login", loginData, function (data) {
           data = JSON.parse(data);
           if (data.id) {
             $.cookie("id", id);
