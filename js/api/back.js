@@ -15,7 +15,8 @@ export function getUserCookieData() {
   return new Just({
     id: "12345678",
     department: "컴퓨터공학과",
-    role: "employee",
+    // role: "employee",
+    role: "student",
   });
 
   const id = $.cookie("id");
@@ -42,14 +43,4 @@ export async function getUserInfo() {
     email: "example@example.com",
     enter: "2022-03-01",
   };
-  // $.get();
-  // const res = await fetch("get", {});
-  // return res.json();
 }
-
-// export async function createUserDetail() {
-//   let tmp = document.createElement("div");
-//   data = $.get();
-//   tmp.innerHtml = '<div class=""></div>';
-//   return tmp;
-// }
