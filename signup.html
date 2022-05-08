@@ -201,11 +201,11 @@
               address         : 주소
               role            : 회원 유형(학생, 교수, 직원)
               department      : 학과
-              enter-date(학생) : 입학 날짜
-              grad-date(학생)  : 졸업 예정일
+              enterDate(학생) : 입학 날짜
+              gradDate(학생)  : 졸업 예정일
             -->
             <form
-              action=""
+              action="memberInsert"
               method="post"
               class="signup-form flex flex-column align-center"
             >
@@ -229,7 +229,7 @@
                   <input
                     id="signup-pw"
                     class="input-text"
-                    name="password"
+                    name="pw"
                     type="password"
                     pattern="[a-zA-Z0-9!@#$%^&*.,?;:]{1,100}"
                     required
@@ -252,7 +252,7 @@
                   <input
                     class="input-text"
                     id="signup-phone-number"
-                    name="phone-number"
+                    name="phone"
                     type="tel"
                     placeholder="숫자만 입력하세요"
                     pattern="[0-9]{7,13}"
@@ -317,7 +317,7 @@
                   <input
                     class="input-date hidden student-form-data"
                     id="signup-enter-date"
-                    name="enter-date"
+                    name="enterDate"
                     type="date"
                   />
 
@@ -329,7 +329,7 @@
                   <input
                     class="input-date hidden student-form-data"
                     id="signup-grad-date"
-                    name="grad-date"
+                    name="gradDate"
                     type="month"
                   />
                 </div>
@@ -395,6 +395,7 @@
       </footer>
     </div>
 
+    <script src="../js/back.js"></script>
     <script type="module" src="./js/navbar.js"></script>
     <script type="module" src="./js/signup.js"></script>
   </body>
