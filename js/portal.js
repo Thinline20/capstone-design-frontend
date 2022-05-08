@@ -3,6 +3,7 @@
  */
 
 import { Maybe } from "./utils/maybe.js";
+import { getCollegeUrl, getDepartmentUrl } from "./core/department.js";
 import { getUserCookieData, getUserInfo } from "./api/back.js";
 
 const { to, fromTo } = gsap;
@@ -10,6 +11,7 @@ const { to, fromTo } = gsap;
 const getVar = (key, elem = document.documentElement) =>
   getComputedStyle(elem).getPropertyValue(key);
 
+// When DOM is ready
 document.addEventListener("DOMContentLoaded", async () => {
   const userCookieData = Maybe.withDefault(null, getUserCookieData());
 
@@ -39,20 +41,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     dataSpan.innerText = dataPiece;
+    dataSpan.style.transitionDuration = "0.4s";
+    dataSpan.setAttribute("draggable", true);
   });
 
   toggleBlur.addEventListener("change", () => {
     if (toggleBlur.checked === true) {
       // 사용자 정보 블러 해제
       userInfoDataSpans.forEach((dataSpan) => {
-        dataSpan.classList.remove("blur");
+        dataSpan.classList.add("unblur");
+        dataSpan.setAttribute("draggable", false);
       });
     } else {
       // 사용자 정보 블러 설정
       userInfoDataSpans.forEach((dataSpan) => {
         if (!dataSpan.classList.contains("blur")) {
-          dataSpan.classList.add("blur");
+          dataSpan.classList.remove("unblur");
         }
+        dataSpan.setAttribute("draggable", true);
       });
     }
 
@@ -62,19 +68,42 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // user related navigation links and various stuff
-  const userRelated = portalContainer.querySelector(".user-related");
-  const userRelatedLinks = userRelated.querySelector(".links");
+  const userRelatedBox = portalContainer.querySelector(".user-related-box");
 
-  const linkSlot = userRelatedLinks.querySelector(".link-slot");
+  const userAffiliation = portalContainer.querySelector(".user-affiliation");
+  const userCollege = userAffiliation.querySelector(".college");
+  const userDepartment = userAffiliation.querySelector(".department");
+
+  userCollege.querySelector("a").href = getCollegeUrl(userData.college);
+  userCollege.querySelector("a span").innerText = userData.college;
+  userDepartment.querySelector("a").href = getDepartmentUrl(
+    userData.department
+  );
+  userDepartment.querySelector("a span").innerText = userData.department;
+
+  const userSpecificNavigation =
+    userRelatedBox.querySelector(".user-navigation");
+  const linkSlot1 = userSpecificNavigation.querySelector(".links .link-slot1");
+  const linkSlot2 = userSpecificNavigation.querySelector(".links .link-slot2");
 
   if (userCookieData.role === "student") {
-    linkSlot.querySelector("i").classList.add("fa-solid", "fa-pencil");
-    linkSlot.querySelector("a").href = "https://dreams2.daejin.ac.kr";
-    linkSlot.querySelector("span").innerText = "수강신청";
+    linkSlot1.querySelector("i").classList.add("fa-solid", "fa-pencil");
+    linkSlot1.querySelector("a").href = "https://dreams2.daejin.ac.kr";
+    linkSlot1.querySelector("span").innerText = "수강신청";
+
+    linkSlot2.querySelector("i").classList.add("fa-solid", "fa-chalkboard");
+    linkSlot2.querySelector("a").href =
+      "https://www.daejin.ac.kr/contents/www/cor/curriculum_1.html";
+    linkSlot2.querySelector("span").innerText = "학사/장학";
   } else {
-    linkSlot.querySelector("i").classList.add("fa-solid", "fa-people-group");
-    // linkSlot.querySelector("a").href = "https://dreams2.daejin.ac.kr";
-    linkSlot.querySelector("span").innerText = "그룹웨어";
+    linkSlot1.querySelector("i").classList.add("fa-solid", "fa-people-group");
+    linkSlot1.querySelector("a").href = "#";
+    linkSlot1.querySelector("span").innerText = "그룹웨어";
+
+    linkSlot2.querySelector("i").classList.add("fa-solid", "fa-user-check");
+    linkSlot2.querySelector("a").href =
+      "http://www.daejin.ac.kr/contents/www/cor/djattendus.html";
+    linkSlot2.querySelector("span").innerText = "전자출결";
   }
 
   // control-panel

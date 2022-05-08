@@ -226,37 +226,147 @@ main.container {
 }
 
 .user-info-box .user-info .user-info-data .data .data-text {
-  /* color: black;
-  text-shadow: none; */
   color: transparent;
-  text-shadow: 0 0 0 rgb(0, 0, 0, 1);
-  transition-duration: 0.4s;
+  text-shadow: 0 0 12px rgb(0, 0, 0, 0.5);
+  transition-duration: 0s;
   transition-property: color text-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.user-info-box .user-info .user-info-data .data .data-text.blur {
+.user-info-box .user-info .user-info-data .data .data-text::selection {
   text-shadow: 0 0 12px rgb(0, 0, 0, 0.5);
 }
 
-.user-info-box .user-info .user-info-data .data .data-text.blur::selection {
-  text-shadow: 0 0 12px rgb(0, 0, 0, 0.5);
+.user-info-box .user-info .user-info-data .data .data-text.unblur {
+  text-shadow: 0 0 0 rgb(0, 0, 0, 1);
+}
+
+.user-info-box .user-info .user-info-data .data .data-text.unblur::selection {
+  background-color: #2563eb;
+  text-shadow: 0 0 0 rgb(255, 255, 255, 1);
 }
 /* 유저 정보 끝 */
 
-/* 박스 */
-
+/* 사용자 관련 링크 */
 .user-related-box {
-  grid-column: 3 / 5;
-}
-
-.user-related .links {
   align-items: center;
   display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  grid-column: 3 / 5;
   justify-content: center;
 }
 
-.user-related .links .link {
+.user-related-box .user-affiliation {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.user-related-box .user-affiliation > div {
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 14rem;
+}
+
+.user-related-box .user-affiliation > div .label {
+  color: rgb(153, 153, 153);
+  display: inline-block;
+}
+
+.user-related-box .user-affiliation > div a {
+  --color: #323338;
+
+  color: var(--color);
+  font-size: 1.125rem;
+  padding: 0.2rem 0;
+  position: relative;
+  text-decoration: none;
+}
+
+.user-related-box .user-affiliation > div a::before {
+  --line-width: 109%;
+  --line-height: 1px;
+  --line-easing: ease;
+  --line-transition-duration: 300ms;
+
+  background: var(--color);
+  bottom: 0;
+  content: "";
+  height: var(--line-height);
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--line-transition-duration) var(--line-easing);
+  width: var(--line-width);
+  z-index: 1;
+}
+
+.user-related-box .user-affiliation > div a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.user-related-box .user-affiliation > div a:hover span {
+  --deg: -45deg;
+}
+
+.user-related-box .user-affiliation > div a:hover span::before {
+  transform: rotate(var(--deg));
+}
+
+.user-related-box .user-affiliation > div a:hover span::after {
+  transform: translateX(-1px) rotate(var(--deg));
+}
+
+.user-related-box .user-affiliation > div a span {
+  --line-arrow-width: 1px;
+  --line-arrow-height: 6px;
+  --line-arrow-easing: cubic-bezier(0.3, 1.5, 0.5, 1);
+  --line-arrow-transition-duration: 200ms;
+  --line-arrow-transition-delay: 240ms;
+}
+
+.user-related-box .user-affiliation > div a span::before,
+.user-related-box .user-affiliation > div a span::after {
+  background: var(--color);
+  bottom: 0px;
+  content: "";
+  position: absolute;
+  right: -12%;
+  transition: transform var(--line-arrow-transition-duration)
+    var(--line-arrow-easing);
+  transition-delay: var(--line-arrow-transition-delay);
+  z-index: 2;
+}
+
+.user-related-box .user-affiliation > div a span::before {
+  height: var(--line-arrow-height);
+  transform: rotate(-90deg);
+  transform-origin: 0% 100%;
+  width: var(--line-arrow-width);
+}
+
+.user-related-box .user-affiliation > div a span::after {
+  height: var(--line-arrow-width);
+  transform: translateX(-1px) rotate(0deg);
+  transform-origin: 100% 0%;
+  width: var(--line-arrow-height);
+}
+
+.user-related-box .user-navigation .links {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.user-related-box .user-navigation .links .link {
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -265,7 +375,7 @@ main.container {
   width: max-content;
 }
 
-.user-related .links .link a {
+.user-related-box .user-navigation .links .link a {
   align-items: center;
   background-color: #2563eb;
   border-radius: 50%;
@@ -277,31 +387,111 @@ main.container {
   width: 5rem;
 }
 
-.user-related .links .link > span {
+.user-related-box .user-navigation .links .link > span {
   font-size: 1.125rem;
   letter-spacing: 0.05rem;
 }
 
-.user-related .links .link:hover > a {
+.user-related-box .user-navigation .links .link:hover > a {
   background-color: #2d91ef;
 }
 
-.user-related .links .link:active > a {
+.user-related-box .user-navigation .links .link:active > a {
   background-color: #2b56b5;
 }
 
-.user-related .links .link:hover > span {
+.user-related-box .user-navigation .links .link:hover > span {
   text-decoration: underline;
   text-decoration-color: #2d91ef;
   text-decoration-thickness: 1px;
 }
 
-.user-related .links .link:active > span {
+.user-related-box .user-navigation .links .link:active > span {
   text-decoration-color: #2b56b5;
 }
 
-.box2 {
+/* 배너 */
+.banners {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   grid-column: 5 / 7;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.banners .grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+}
+
+.banners .grid .banner {
+  align-items: center;
+  display: flex;
+  width: 18rem;
+}
+
+.banners .grid .banner:nth-of-type(2n-1) {
+  justify-content: flex-end;
+}
+
+.banners .office-365 {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.banners .office-365 img {
+  /* width: 16rem; */
+}
+
+.banners .office-365 .links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.banners .office-365 .links a {
+  color: var(--color);
+  font-size: 1.5rem;
+  font-weight: 500;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  width: max-content;
+}
+
+.banners .office-365 .links a::after {
+  background-color: var(--background);
+  bottom: -6px;
+  content: "";
+  height: calc(100% - 8px);
+  left: 12px;
+  position: absolute;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+  width: calc(100% - 8px);
+  z-index: 0;
+}
+
+.banners .office-365 .links a:hover::after {
+  bottom: -2px;
+  height: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.banners .office-365 .links a:first-child {
+  --color: rgb(236, 64, 122);
+  --background: rgb(236, 64, 122, 0.25);
+}
+
+.banners .office-365 .links a:last-child {
+  --color: rgb(238, 111, 30);
+  --background: rgb(238, 111, 30, 0.25);
 }
 
 /* 버튼들 */
