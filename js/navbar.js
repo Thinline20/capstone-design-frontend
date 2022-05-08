@@ -9,6 +9,16 @@ import { Maybe } from "./utils/maybe.js";
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.querySelector(".root");
 
+  // 게시판
+  const boardList = document.getElementById("board-list");
+  boardList.addEventListener("click", () => {
+    window.open(
+      "boardList",
+      "_blank",
+      "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=400,width=1000,height=700"
+    );
+  });
+
   /* 프론트 js */
   // 상단 내비게이션
   const topNavbarSide = document.querySelector(".top-navbar-side");
