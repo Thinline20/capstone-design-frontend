@@ -5,19 +5,25 @@
 import { Maybe } from "./utils/maybe.js";
 import { delay } from "./utils/delay.js";
 import { createElement } from "./core/createElement.js";
-import { getUserCookieData } from "./api/back.js";
+import { getUserCookieData } from "./api/api.js";
 import { getDepartmentUrl } from "./core/department.js";
 import { keywordsList } from "./core/searchSuggestionKeywords.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userData = Maybe.withDefault(null, getUserCookieData());
+  const telSearch = document.querySelector(".tel-search");
+  const PhoneList = telSearch.querySelector("#PhoneList");
 
   if (!userData) {
     // 로그인 정보가 없을 경우
     createLoginBox();
+    PhoneList.disabled = true;
+    PhoneList.classList.add("disabled");
+    telSearch.childNodes[1].classList.add("disabled");
   } else {
     // 로그인 정보가 있을 경우
     createLogoutBox(userData);
+    PhoneList.href = "http://www.daejin.ac.kr/front/phonelist.do";
   }
 
   const boardList = document.getElementById("board-list");
@@ -119,10 +125,8 @@ function createLoginBox() {
               $.cookie("id", id);
               $.cookie("department", data.department);
               $.cookie("role", data.role);
-
-              console.log(data.id + "님 환영합니다.");
-
-              createLogoutBox(data);
+              window.location.reload();
+              // createLogoutBox(data);
             } else {
               throw new Error(data.msg);
             }

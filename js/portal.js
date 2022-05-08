@@ -4,7 +4,7 @@
 
 import { Maybe } from "./utils/maybe.js";
 import { getCollegeUrl, getDepartmentUrl } from "./core/department.js";
-import { getUserCookieData, getUserInfo } from "./api/back.js";
+import { getUserCookieData, getUserInfo } from "./api/api.js";
 
 const { to, fromTo } = gsap;
 
