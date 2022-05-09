@@ -495,9 +495,132 @@ main.container {
 }
 
 /* 버튼들 */
-.control-panel {
+.portal-container .control-panel {
+  align-items: center;
+  display: flex;
   grid-column: 1 / 4;
   height: 25rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.portal-container .control-panel .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+
+.portal-container .control-panel .buttons > div {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.portal-container .control-panel .buttons .button-wrapper {
+  background-color: #fff;
+  border-radius: 50px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 60px;
+  margin: 0 5px;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  width: 60px;
+}
+.portal-container .control-panel .buttons .button-wrapper * {
+  cursor: pointer;
+}
+.portal-container .control-panel .buttons .button-wrapper button {
+  background-color: white;
+  border: none;
+  border-radius: 50px;
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  outline: none;
+  text-align: center;
+  width: 60px;
+}
+.portal-container .control-panel .buttons .button-wrapper:hover {
+  width: 11rem;
+}
+.portal-container .control-panel .buttons .button-wrapper button i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portal-container .control-panel .buttons .button-wrapper:hover button i {
+  color: #fff;
+}
+.portal-container .control-panel .buttons .button-wrapper span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+}
+.control-panel .buttons .button-wrapper:nth-child(1):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(2):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(3):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(4):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(5):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(6):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(7):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(8):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(9):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(10):hover button {
+  background: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(1) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(2) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(3) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(4) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(5) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(6) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(7) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(8) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(9) span {
+  color: #4267b2;
+}
+.control-panel .buttons .button-wrapper:nth-child(10) span {
+  color: #4267b2;
 }
 
 /* 추가 정보 */
