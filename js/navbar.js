@@ -3,7 +3,7 @@
  */
 
 import { createElement } from "./core/createElement.js";
-import { getUserCookieData } from "./api/back.js";
+import { getUserCookieData } from "./api/api.js";
 import { Maybe } from "./utils/maybe.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createLogoutButton(wrapper);
     }
 
-    createCreateUserButton(wrapper, userData);
+    createCreateUserButton(wrapper, userData.role);
   }
 
   topNavbarSide.insertBefore(wrapper, insertLocation);
@@ -175,9 +175,9 @@ function createLogoutButton(wrapper) {
   wrapper.append(logoutButton);
 }
 
-function createCreateUserButton(wrapper, userData) {
+function createCreateUserButton(wrapper, role) {
   // 만약 사용자 정보가 직원일 경우
-  if (userData.role === "employee") {
+  if (role === "employee") {
     const createUserButton = createElement(
       "a",
       {

@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     PhoneList.disabled = true;
     PhoneList.classList.add("disabled");
     telSearch.childNodes[1].classList.add("disabled");
+    telSearch.style.pointerEvents = "none";
+    telSearch.querySelector("span").style.color = "#ddd";
   } else {
     // 로그인 정보가 있을 경우
     createLogoutBox(userData);
