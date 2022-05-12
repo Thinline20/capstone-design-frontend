@@ -108,6 +108,34 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // control-panel
   const controlPanel = portalContainer.querySelector(".control-panel");
+  const infoPanel = document.querySelector(".info-panel");
+  const buttons = controlPanel.querySelectorAll(".buttons .button-wrapper");
+
+  document.body.addEventListener("click", () => {
+    closeInfoPanel(infoPanel);
+  });
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      if (!infoPanel.classList.contains("active")) {
+        showInfoPanel(infoPanel);
+      } else {
+      }
+    });
+  });
+
+  infoPanel.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  infoPanel
+    .querySelector(".close-info-panel")
+    .addEventListener("click", (event) => {
+      event.stopPropagation();
+      closeInfoPanel(infoPanel);
+    });
 
   // additional-info
   const additionalInfo = portalContainer.querySelector(".additional-info");
@@ -183,4 +211,14 @@ function setToggleBlurDesign() {
       ],
     });
   });
+}
+
+function showInfoPanel(infoPanel) {
+  infoPanel.classList.add("active");
+}
+
+function closeInfoPanel(infoPanel) {
+  if (infoPanel.classList.contains("active")) {
+    infoPanel.classList.remove("active");
+  }
 }
