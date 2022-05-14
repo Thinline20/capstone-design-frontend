@@ -17,11 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!userData) {
     // 로그인 정보가 없을 경우
     createLoginBox();
-    PhoneList.disabled = true;
-    PhoneList.classList.add("disabled");
-    telSearch.childNodes[1].classList.add("disabled");
-    telSearch.style.pointerEvents = "none";
-    telSearch.querySelector("span").style.color = "#ddd";
+    telSearch.classList.add("disabled");
   } else {
     // 로그인 정보가 있을 경우
     createLogoutBox(userData);

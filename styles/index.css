@@ -214,12 +214,17 @@
   text-decoration-color: #2b56b5;
 }
 
-.main-right-nav-side .tel-search #PhoneList.disabled {
+.main-right-nav-side .tel-search.disabled,
+.main-right-nav-side .tel-search.disabled * {
+  pointer-events: none;
+}
+
+.main-right-nav-side .tel-search.disabled #PhoneList {
   background-color: #4aa0f0;
 }
 
-.main-right-nav-side .tel-search:hover span {
-  text-decoration: none;
+.main-right-nav-side .tel-search.disabled span {
+  color: #ddd;
 }
 
 .main-right-nav-menu {
