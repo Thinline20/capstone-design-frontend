@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createLogoutButton(wrapper);
     }
 
-    createCreateUserButton(wrapper, userData.role);
+    createUserButton(wrapper, userData.role);
   }
 
   topNavbarSide.insertBefore(wrapper, insertLocation);
@@ -175,14 +175,14 @@ function createLogoutButton(wrapper) {
   wrapper.append(logoutButton);
 }
 
-function createCreateUserButton(wrapper, role) {
+function createUserButton(wrapper, role) {
   // 만약 사용자 정보가 직원일 경우
   if (role === "employee") {
     const createUserButton = createElement(
       "a",
       {
         className: "create-user",
-        href: "/pages/signup.html",
+        href: "signup.html",
       },
       "회원생성"
     );
