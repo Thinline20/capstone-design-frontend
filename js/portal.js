@@ -5,6 +5,7 @@
 import { Maybe } from "./utils/maybe.js";
 import { getCollegeUrl, getDepartmentUrl } from "./core/department.js";
 import { getUserCookieData, getUserInfo } from "./api/back.js";
+import { delay } from "./utils/delay.js";
 
 const { to, fromTo } = gsap;
 
@@ -24,6 +25,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const toggleBlurLabels = userInfoBox.querySelectorAll(".toggle-blur-label");
 
   const userData = await getUserInfo();
+
+  toggleBlur.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
 
   setToggleBlurDesign(toggleBlur);
   toggleBlurLabels.forEach((label) => {
@@ -111,9 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const infoPanel = document.querySelector(".info-panel");
   const buttons = controlPanel.querySelectorAll(".buttons .button-wrapper");
 
-  document.body.addEventListener("click", () => {
-    closeInfoPanel(infoPanel);
-  });
+  document.body.addEventListener("click", handleBodyClick);
 
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
@@ -136,6 +139,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       event.stopPropagation();
       closeInfoPanel(infoPanel);
     });
+
+  dragInfoPanel();
 
   // additional-info
   const additionalInfo = portalContainer.querySelector(".additional-info");
@@ -220,5 +225,73 @@ function showInfoPanel(infoPanel) {
 function closeInfoPanel(infoPanel) {
   if (infoPanel.classList.contains("active")) {
     infoPanel.classList.remove("active");
+  }
+}
+
+function handleBodyClick() {
+  closeInfoPanel(document.querySelector(".info-panel"));
+}
+
+function dragInfoPanel() {
+  var pos1 = 0,
+    pos2 = 0,
+    pos3 = 0,
+    pos4 = 0;
+
+  const infoPanel = document.querySelector(".info-panel");
+  infoPanel.querySelector(".info-panel-header").onmousedown = dragMouseDown;
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    document.body.removeEventListener("click", handleBodyClick);
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+
+    // fix
+    if (infoPanel.offsetTop - pos2 <= -113) {
+      infoPanel.style.top = "-112px";
+    } else if (
+      -113 < infoPanel.offsetTop - pos2 &&
+      infoPanel.offsetTop - pos2 < 158
+    ) {
+      infoPanel.style.top = infoPanel.offsetTop - pos2 + "px";
+    } else {
+      infoPanel.style.top = "157px";
+    }
+
+    if (infoPanel.offsetLeft - pos1 <= -1) {
+      infoPanel.style.left = "0px";
+    } else if (
+      -1 < infoPanel.offsetLeft - pos1 &&
+      infoPanel.offsetLeft - pos1 < 1276
+    ) {
+      infoPanel.style.left = infoPanel.offsetLeft - pos1 + "px";
+    } else {
+      infoPanel.style.left = "1275px";
+    }
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+    delay(5).then(() => {
+      document.body.addEventListener("click", handleBodyClick);
+    });
   }
 }
