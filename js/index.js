@@ -5,19 +5,23 @@
 import { Maybe } from "./utils/maybe.js";
 import { delay } from "./utils/delay.js";
 import { createElement } from "./core/createElement.js";
-import { getUserCookieData } from "./api/back.js";
+import { getUserCookieData } from "./api/api.js";
 import { getDepartmentUrl } from "./core/department.js";
 import { keywordsList } from "./core/searchSuggestionKeywords.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userData = Maybe.withDefault(null, getUserCookieData());
+  const telSearch = document.querySelector(".tel-search");
+  const PhoneList = telSearch.querySelector("#PhoneList");
 
   if (!userData) {
     // 로그인 정보가 없을 경우
     createLoginBox();
+    telSearch.classList.add("disabled");
   } else {
     // 로그인 정보가 있을 경우
     createLogoutBox(userData);
+    PhoneList.href = "http://www.daejin.ac.kr/front/phonelist.do";
   }
 
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
@@ -110,10 +114,7 @@ function createLoginBox() {
               $.cookie("id", id);
               $.cookie("department", data.department);
               $.cookie("role", data.role);
-
-              console.log(data.id + "님 환영합니다.");
-
-              createLogoutBox(data);
+              window.location.reload();
             } else {
               throw new Error(data.msg);
             }
@@ -236,7 +237,7 @@ function createLogoutBox(data) {
         "button",
         {
           className: "logout-button",
-          onclick: async (event) => {
+          onclick: (event) => {
             // 프론트 js
             // TODO
             try {
@@ -251,7 +252,7 @@ function createLogoutBox(data) {
                 }
               });
             } catch (err) {
-              console.log(err);
+              window.alert(err);
             }
           },
         },

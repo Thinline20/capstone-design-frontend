@@ -3,11 +3,21 @@
  */
 
 import { createElement } from "./core/createElement.js";
-import { getUserCookieData } from "./api/back.js";
+import { getUserCookieData } from "./api/api.js";
 import { Maybe } from "./utils/maybe.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.querySelector(".root");
+
+  // 게시판
+  const boardList = document.getElementById("board-list");
+  boardList.addEventListener("click", () => {
+    window.open(
+      "boardList",
+      "_blank",
+      "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=400,width=1000,height=700"
+    );
+  });
 
   /* 프론트 js */
   // 상단 내비게이션
@@ -33,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createLogoutButton(wrapper);
     }
 
-    createCreateUserButton(wrapper, userData);
+    createCreateUserButton(wrapper, userData.role);
   }
 
   topNavbarSide.insertBefore(wrapper, insertLocation);
@@ -165,14 +175,15 @@ function createLogoutButton(wrapper) {
   wrapper.append(logoutButton);
 }
 
-function createCreateUserButton(wrapper, userData) {
+function createCreateUserButton(wrapper, role) {
   // 만약 사용자 정보가 직원일 경우
-  if (userData.role === "employee") {
+  console.log(role);
+  if (role === "employee") {
     const createUserButton = createElement(
       "a",
       {
         className: "create-user",
-        href: "/pages/signup.html",
+        href: "signup.html",
       },
       "회원생성"
     );
