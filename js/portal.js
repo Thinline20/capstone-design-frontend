@@ -6,6 +6,7 @@ import { Maybe } from "./utils/maybe.js";
 import { getCollegeUrl, getDepartmentUrl } from "./core/department.js";
 import { getUserCookieData, getUserInfo } from "./api/back.js";
 import { delay } from "./utils/delay.js";
+import { createInfoPanel, clearInfoPanelContent } from "./portalInfoPanel.js";
 
 const { to, fromTo } = gsap;
 
@@ -25,10 +26,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const toggleBlurLabels = userInfoBox.querySelectorAll(".toggle-blur-label");
 
   const userData = await getUserInfo();
-
-  toggleBlur.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
 
   setToggleBlurDesign(toggleBlur);
   toggleBlurLabels.forEach((label) => {
@@ -113,37 +110,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // control-panel
   const controlPanel = portalContainer.querySelector(".control-panel");
-  const infoPanel = document.querySelector(".info-panel");
   const buttons = controlPanel.querySelectorAll(".buttons .button-wrapper");
-
-  document.body.addEventListener("click", handleBodyClick);
+  const infoPanel = document.querySelector(".info-panel");
 
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
-      event.stopPropagation();
-
       if (!infoPanel.classList.contains("active")) {
         showInfoPanel(infoPanel);
+        currentInfoContent = event.target.dataset.value;
+        createInfoPanel(currentInfoContent, infoPanel);
       } else {
+        if (event.target.dataset.value !== currentInfoContent) {
+          currentInfoContent = event.target.dataset.value;
+          createInfoPanel(currentInfoContent, infoPanel);
+          clearInfoPanelContent();
+        }
       }
     });
   });
 
-  infoPanel.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
+  // additional-info
+  const additionalInfo = portalContainer.querySelector(".additional-info");
 
-  infoPanel
-    .querySelector(".close-info-panel")
-    .addEventListener("click", (event) => {
-      event.stopPropagation();
-      closeInfoPanel(infoPanel);
-    });
+  // info-panel
+  const infoPanelContent = infoPanel.querySelector("#info-panel-content");
+  let currentInfoContent = -1;
 
   dragInfoPanel();
 
-  // additional-info
-  const additionalInfo = portalContainer.querySelector(".additional-info");
+  const closeButton = infoPanel.querySelector(".close-info-panel");
+  closeButton.addEventListener("click", () => {
+    closeInfoPanel(infoPanel);
+  });
 });
 
 function setToggleBlurDesign() {
@@ -255,34 +253,32 @@ function dragInfoPanel() {
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-    document.body.removeEventListener("click", handleBodyClick);
     // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
 
-    // fix
     if (infoPanel.offsetTop - pos2 <= -113) {
       infoPanel.style.top = "-112px";
     } else if (
       -113 < infoPanel.offsetTop - pos2 &&
-      infoPanel.offsetTop - pos2 < 158
+      infoPanel.offsetTop - pos2 < 160
     ) {
       infoPanel.style.top = infoPanel.offsetTop - pos2 + "px";
     } else {
-      infoPanel.style.top = "157px";
+      infoPanel.style.top = "159px";
     }
 
     if (infoPanel.offsetLeft - pos1 <= -1) {
       infoPanel.style.left = "0px";
     } else if (
       -1 < infoPanel.offsetLeft - pos1 &&
-      infoPanel.offsetLeft - pos1 < 1276
+      infoPanel.offsetLeft - pos1 < document.documentElement.clientWidth - 879
     ) {
       infoPanel.style.left = infoPanel.offsetLeft - pos1 + "px";
     } else {
-      infoPanel.style.left = "1275px";
+      infoPanel.style.left = `${document.documentElement.clientWidth - 880}px`;
     }
   }
 
@@ -290,8 +286,5 @@ function dragInfoPanel() {
     /* stop moving when mouse button is released:*/
     document.onmouseup = null;
     document.onmousemove = null;
-    delay(5).then(() => {
-      document.body.addEventListener("click", handleBodyClick);
-    });
   }
 }

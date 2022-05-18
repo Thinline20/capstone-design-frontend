@@ -524,7 +524,7 @@ main.container {
   color: black;
   cursor: pointer;
   display: inline;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   height: 40px;
   letter-spacing: 2px;
@@ -586,18 +586,23 @@ main.container {
   border-radius: 0.4rem;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  display: flex;
+  flex-direction: column;
   height: calc(100% - 2rem);
-  left: 77rem;
+  left: 62rem;
+  opacity: 0;
   overflow: hidden;
   position: absolute;
   top: 1rem;
   transform: none;
+  transition: opacity 0.08s cubic-bezier(0.4, 0, 0.2, 1);
   visibility: hidden;
-  width: 33%;
+  width: 55rem;
   z-index: 10000;
 }
 
 .info-panel.active {
+  opacity: 1;
   visibility: visible;
 }
 
@@ -643,4 +648,199 @@ main.container {
 .info-panel .close-info-panel:hover::before,
 .info-panel .close-info-panel:hover::after {
   opacity: 1;
+}
+
+.info-panel .outer-tabs .outer-tab-input,
+.info-panel .outer-tabs .inner-tabs .inner-tab-input {
+  display: none;
+}
+
+.info-panel .outer-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.info-panel .outer-tabs .outer-tab {
+  align-items: center;
+  background-color: #343436;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  text-align: center;
+  transition-duration: 0.1s;
+  transition-property: background-color color box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-panel .outer-tabs .outer-tab:hover {
+  background-color: #454546;
+}
+
+.info-panel .outer-tabs .outer-tab-input:checked + .outer-tab {
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  color: black;
+  color: black;
+}
+
+.info-panel .select-wrapper {
+  display: none;
+  height: max-content;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  order: 5;
+  visibility: hidden;
+  width: 100%;
+}
+
+.info-panel .outer-tab-input:checked + .outer-tab + .select-wrapper {
+  display: flex;
+  visibility: visible;
+}
+
+.info-panel .select-wrapper .select {
+  background-color: white;
+  cursor: pointer;
+  margin: 0;
+  padding-right: 3rem;
+  width: 46%;
+}
+
+.info-panel .info-panel-content {
+  align-items: center;
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+.info-panel .info-panel-content > * {
+  height: 100%;
+  width: 100%;
+}
+
+.info-panel .info-panel-content .content-name {
+  color: #2f2d3b;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  margin-bottom: 2rem;
+}
+
+.info-panel .form-wrapper,
+.info-panel .check-wrapper {
+  align-items: center;
+  background-color: white;
+  border-radius: 0.4rem;
+  box-shadow: 0px 0 2px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.info-panel .form-wrapper form label {
+  font-size: 0.77rem;
+}
+
+.info-panel .change-user-info-wrapper {
+  height: 27rem;
+  width: 30rem;
+}
+
+.info-panel #change-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-panel #change-user-info > input {
+  margin-bottom: 1rem;
+  width: 25rem;
+}
+
+.info-panel #change-user-info > .submit {
+  margin-top: 1.5rem;
+  width: 25rem;
+}
+
+.info-panel .change-password-form-wrapper {
+  height: 22rem;
+  width: 30rem;
+}
+
+.info-panel .change-password-form-wrapper #change-password-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-panel #change-password-form > input {
+  margin-bottom: 1rem;
+  width: 25rem;
+}
+
+.info-panel #change-password-form > .submit {
+  margin-top: 1.5rem;
+  width: 25rem;
+}
+
+.info-panel .apply-minor-form-wrapper {
+  height: 22rem;
+  width: 30rem;
+}
+
+.info-panel .apply-minor-form-wrapper #apply-minor-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-panel .apply-minor-form-wrapper #apply-minor-form select {
+  margin-bottom: 1rem;
+  width: 25rem;
+}
+
+.info-panel .apply-minor-form-wrapper #apply-minor-form .submit {
+  margin-top: 1.5rem;
+  width: 25rem;
+}
+
+.info-panel .apply-double-major-form-wrapper {
+  height: 22rem;
+  width: 30rem;
+}
+
+.info-panel .apply-double-major-form-wrapper #apply-double-major-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-panel .apply-double-major-form-wrapper #apply-double-major-form select {
+  margin-bottom: 1rem;
+  width: 25rem;
+}
+
+.info-panel .apply-double-major-form-wrapper #apply-double-major-form .submit {
+  margin-top: 1.5rem;
+  width: 25rem;
+}
+
+.info-panel .check-minor-application-wrapper {
+  height: 25rem;
+  width: 30rem;
+}
+
+.info-panel #check-minor-application {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 20rem;
+  margin-top: 4rem;
 }
