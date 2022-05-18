@@ -3,7 +3,7 @@
  */
 
 import { createElement } from "./core/createElement.js";
-import { createTabContent } from "./portalInfoPanelTabContent.js";
+import { createTabContent } from "./portalInfoPanelContent.js";
 
 let contents = [
   {

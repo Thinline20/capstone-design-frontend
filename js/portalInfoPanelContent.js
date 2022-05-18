@@ -47,15 +47,15 @@ export function createTabContent(selectedPanel, contentId) {
             case 2:
               return takeOff();
             case 3:
-              return militaryTakeOff();
+            // return militaryTakeOff();
             case 4:
               return returnSchool();
             case 5:
-              return checkReturnSchool();
+            // return checkReturnSchool();
             case 6:
-              return printTakeOffForm();
+            // return printTakeOffForm();
             case 7:
-              return printMilitaryTakeOffForm();
+            // return printMilitaryTakeOffForm();
           }
         case 8:
           break;
