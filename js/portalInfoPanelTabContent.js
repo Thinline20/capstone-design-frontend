@@ -430,7 +430,11 @@ function checkDoubleMajorApplicationResult() {
   // 복수전공 신청 결과를 반환
   const request = { status: 200 };
   const ok = true; // 만약 신청한 내용이 있다면 ok=true, 없으면 ok=false
-  const data = { college: "휴먼IT공과대학", department: "컴퓨터공학과" }; // 신청한 내용이 있다면 data에 저장
+  const data = {
+    college: "휴먼IT공과대학",
+    department: "컴퓨터공학과",
+    approved: false,
+  }; // 신청한 내용이 있다면 data에 저장
 
   if (!ok) {
     window.alert("신청한 복수전공이 없습니다");
@@ -475,7 +479,7 @@ function takeOffInstruction() {
         <ol class="top">
           <li>
             현재 <span class="bold blue">일반휴학생</span>으로서 교육소집 또는 입영영장을 받은 남학생[<span class="bold blue underline">신입생</span>, <span class="bold blue underline">편입생</span>을 포함]<br>
-            <ol type="i">
+            <ol type="A">
               <li>신청기간 : 2022. 5. 11.(수) ~</li>
               <li>신청일 : <span class="bold blue underline">입영일 20일 전부터</span> 신청 가능함</li>
               <li>신청방법 : 우리대학 포털시스템에서 <span class="red bold">온라인 신청</span>(<span class="bold">입영통지서</span> <span class="red bold">.jpg</span>파일로 첨부)</li>
@@ -484,7 +488,7 @@ function takeOffInstruction() {
           </li>
           <li>
             현재 <span class="bold blue underline">재학생</span>으로서 수업일수 2/3선 이후부터 기말고사 종료 전까지 군입대자
-            <ol type="i">
+            <ol type="A">
               <li>휴학기간 : 2022. 5. 11.(수) ~ 6. 14.(화) [학점인정원 인정 기준일]</li>
               <li>휴학신청일 : <span class="bold underline>입대일 하루 전</span>에만 군 입대휴학 신청 가능함[수업 및 출석을 위함]</li>
               <li>접수절차 : 공문제출 [ 제목 : 재학생 군휴학원 제출(학과명) ]</li>
@@ -494,14 +498,14 @@ function takeOffInstruction() {
           </li>
           <li>
             <span class="blue bold">유의사항</span>
-            <ol type="i">
+            <ol type="A">
               <li>입대 후 귀가조치되는 경우 <span class="red bold">귀가일로부터 10일 이내에</span> 귀가증을 지참하여 군입대휴학을 취소하여야 함.</li>
               <li><span class="bold">휴학기간 만료 후 미복학자는 자동으로 제적 처리됨(학칙 제 30조)</span></li>
             </ol>
           </li>
           <li>
             <span class="bold">문의처</span>
-            <ol type="i">
+            <ol type="A">
               <li>종합서비스센터 031) 539-1301~3</li>
               <li><a href="https://www.daejin.ac.kr/contents/www/cor/campus5_2.html" title="학과 사무실 연락처">학과 사무실 연락처</a></li>
               <li>
@@ -566,13 +570,14 @@ function takeOff() {
 
     /**
      * -- Form Data --
-     * document : 휴학원 파일
+     * document : 휴학 관련 파일
      */
     const { document } = Object.fromEntries(
       new FormData(event.target).entries()
     );
 
     // 서버
+    // 파일을 제출하면 관리자가 검토 후 승인
     console.log(document);
   });
 
@@ -602,12 +607,10 @@ function returnSchool() {
 
   returnWrapper.innerHTML = returnHTML;
 
-  returnWrapper
-    .querySelector(".request")
-    .addEventListener("click", (event) => {
-      // 서버
-      // 클릭하면 휴학 신청
-    });
+  returnWrapper.querySelector(".request").addEventListener("click", (event) => {
+    // 서버
+    // 클릭하면 휴학 신청
+  });
 
   return returnWrapper;
 }
