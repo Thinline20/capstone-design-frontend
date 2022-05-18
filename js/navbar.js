@@ -165,7 +165,7 @@ function createLogoutButton(wrapper) {
             }
           });
         } catch (err) {
-          console.log(err);
+          window.alert(err);
         }
       },
     },
@@ -177,7 +177,6 @@ function createLogoutButton(wrapper) {
 
 function createCreateUserButton(wrapper, role) {
   // 만약 사용자 정보가 직원일 경우
-  console.log(role);
   if (role === "employee") {
     const createUserButton = createElement(
       "a",
