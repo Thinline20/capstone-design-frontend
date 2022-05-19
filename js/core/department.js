@@ -78,5 +78,3 @@ export function getCollegeUrl(target) {
 export function getDepartmentUrl(target) {
   return departmentUrls[target];
 }
-
-export function getDepartments(college) {}
