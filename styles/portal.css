@@ -948,8 +948,8 @@ main.container {
 }
 
 .info-panel .instruction a:link,
-a:visited,
-a:active {
+.info-panel .instruction a:visited,
+.info-panel .instruction a:active {
   color: #2563eb;
   text-decoration: none;
 }
