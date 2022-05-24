@@ -10,6 +10,11 @@
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+.root {
+  display: none;
+  visibility: hidden;
+}
+
 .main-container {
   margin-bottom: 2rem;
   padding-left: 0;
@@ -18,39 +23,39 @@
 
 /* 메인 페이지 왼쪽 */
 .main-left {
-  min-height: 50vh;
+  display: flex;
+  height: calc(100vh - 6rem);
+  justify-content: center;
   position: fixed;
   width: 40rem;
+}
+
+.search-form-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: auto;
+  margin-top: 8rem;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+  width: 100%;
+}
+
+.search-form-wrapper.slide-up {
+  transform: translateY(-8rem);
 }
 
 .main-left .daejin-logo {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  margin-top: 5rem;
-  opacity: 0;
-  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.main-left .daejin-logo.fade-in {
-  opacity: 1;
 }
 
 .main-left .daejin-logo img {
   width: 18rem;
-}
-
-.search-form-wrapper {
-  margin-bottom: auto;
-  margin-top: 0rem;
-  transform: translateY(-1rem);
-  transition-duration: 0.2s;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
-}
-
-.search-form-wrapper.slide-down {
-  transform: translateY(3rem);
 }
 
 .search-wrapper .search-input {
@@ -122,6 +127,55 @@
 
 .search-suggestions .keywords .keyword.fade {
   opacity: 0;
+}
+
+.main-left .useful-links {
+  bottom: 0;
+  position: absolute;
+}
+
+.main-left .useful-links .links-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  height: 2rem;
+}
+
+.main-left .useful-links .link-wrapper {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.main-left .useful-links .link-wrapper::after {
+  background-color: #2563eb;
+  bottom: -0.5rem;
+  content: "";
+  height: 3px;
+  opacity: 0;
+  position: absolute;
+  transition-duration: 0.1s;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.main-left .useful-links .link-wrapper:hover::after {
+  opacity: 1;
+}
+
+.main-left .useful-links .links-wrapper a {
+  align-items: center;
+  color: #343436;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  display: flex;
+  flex: 1 1 auto;
+  font-size: 1.125rem;
+  justify-content: space-between;
+  line-height: 1.125rem;
+  text-decoration: none;
 }
 
 /* 메인 페이지 오른쪽 */

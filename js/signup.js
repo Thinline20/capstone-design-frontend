@@ -2,7 +2,11 @@
  * @prettier
  */
 
+import { loadRoot } from "./core/load.js";
+
 document.addEventListener("DOMContentLoaded", () => {
+  loadRoot(document.querySelector(".root"));
+
   let studentDateData = document.querySelectorAll(".student-form-data");
   let signupRole = document.getElementById("signup-role");
   signupRole.selectedIndex = -1;

@@ -3,7 +3,9 @@
  */
 
 .root {
+  display: block;
   height: 100%;
+  visibility: hidden;
 }
 
 .signup-container {

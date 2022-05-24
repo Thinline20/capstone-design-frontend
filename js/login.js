@@ -2,7 +2,11 @@
  * @prettier
  */
 
+import { loadRoot } from "./core/load.js";
+
 document.addEventListener("DOMContentLoaded", () => {
+  loadRoot(document.querySelector(".root"));
+
   document
     .querySelector(".login-form")
     .addEventListener("submit", async (event) => {

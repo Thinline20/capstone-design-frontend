@@ -13,8 +13,7 @@ const collegeUrls = {
 };
 
 const departmentUrls = {
-  컴퓨터공학과:
-    "http://it.daejin.ac.kr/wslsubjectlist.do?wslID=it&menuCode=006009",
+  컴퓨터공학과: "http://it.daejin.ac.kr/32.html",
 };
 
 export const departments = {

@@ -8,8 +8,13 @@ import { createElement } from "./core/createElement.js";
 import { getUserCookieData } from "./api/api.js";
 import { getDepartmentUrl } from "./core/department.js";
 import { keywordsList } from "./core/searchSuggestionKeywords.js";
+import { loadRoot } from "./core/load.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.querySelector(".root");
+
+  loadRoot(root);
+
   const userData = Maybe.withDefault(null, getUserCookieData());
   const telSearch = document.querySelector(".tel-search");
   const PhoneList = telSearch.querySelector("#PhoneList");
@@ -26,26 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let lastScrollTop = window.pageYOffset || document.body.scrollTop;
   const searchBox = document.querySelector(".search-form-wrapper");
-  const daejinLogo = document.querySelector(".main-left .daejin-logo");
+  const usefulLinks = document.querySelector(".useful-links");
 
   setTimeout(() => {
     changeSearchSuggestions(0, 1, 2);
   }, 5000);
 
-  if (document.documentElement.scrollTop > 200) {
-    searchBox.classList.add("slide-down");
-    daejinLogo.classList.add("fade-in");
-  }
-
   window.addEventListener("scroll", () => {
     let currentScrollTop = document.documentElement.scrollTop;
 
-    if (currentScrollTop > 200 || lastScrollTop > 200) {
-      searchBox.classList.add("slide-down");
-      daejinLogo.classList.add("fade-in");
+    if (currentScrollTop + window.innerHeight > root.offsetHeight - 96) {
+      usefulLinks.style.bottom = `${
+        96 - (root.offsetHeight - (currentScrollTop + window.innerHeight))
+      }px`;
     } else {
-      searchBox.classList.remove("slide-down");
-      daejinLogo.classList.remove("fade-in");
+      usefulLinks.style.bottom = "0px";
     }
 
     lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;

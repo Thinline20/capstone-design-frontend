@@ -7,15 +7,24 @@ import { getCollegeUrl, getDepartmentUrl } from "./core/department.js";
 import { getUserCookieData, getUserInfo } from "./api/api.js";
 import { delay } from "./utils/delay.js";
 import { createInfoPanel, clearInfoPanelContent } from "./portalInfoPanel.js";
+import { loadRoot } from "./core/load.js";
 
 const { to, fromTo } = gsap;
+
+const userCookieData = Maybe.withDefault(null, getUserCookieData());
+
+if (!userCookieData) {
+  window.location.href = "./login.html";
+}
 
 const getVar = (key, elem = document.documentElement) =>
   getComputedStyle(elem).getPropertyValue(key);
 
 // When DOM is ready
 document.addEventListener("DOMContentLoaded", async () => {
-  const userCookieData = Maybe.withDefault(null, getUserCookieData());
+  const root = document.querySelector(".root");
+
+  loadRoot(root);
 
   const portalContainer = document.querySelector(".portal-container");
 

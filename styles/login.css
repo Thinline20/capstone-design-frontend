@@ -4,6 +4,8 @@
 
 .root {
   height: 100%;
+  visibility: hidden;
+  display: block;
 }
 
 .login-box-wrapper {

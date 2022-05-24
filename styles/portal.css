@@ -16,7 +16,9 @@
 }
 
 .root {
+  display: none;
   height: 100%;
+  visibility: hidden;
 }
 
 main.container {
@@ -279,10 +281,11 @@ main.container {
 }
 
 .user-related-box .user-affiliation > div a {
-  --color: #323338;
+  --color: #2644eb;
 
   color: var(--color);
   font-size: 1.125rem;
+  font-weight: 500;
   padding: 0.2rem 0;
   position: relative;
   text-decoration: none;
@@ -611,6 +614,7 @@ main.container {
   background-color: #6d28d9;
   display: flex;
   height: 2.2rem;
+  justify-content: flex-end;
 }
 
 .info-panel .close-info-panel {
@@ -619,7 +623,7 @@ main.container {
   border-radius: 50%;
   cursor: pointer;
   height: 1.2rem;
-  margin-left: 0.6rem;
+  margin-right: 0.6rem;
   position: relative;
   width: 1.2rem;
 }
